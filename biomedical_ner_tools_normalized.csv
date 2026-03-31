@@ -1,0 +1,122 @@
+Tool,Institution,Year,Task,Entity_Type_Standardized,Entity_Type_Original,NER_Training_Corpus,Normalization_Tool,ID_Output,URL,Notes
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Gene/Protein,Gene / Protein,"NLM-Gene, GNormPlus, BioRED",GNorm2,NCBI Gene ID (Entrez),https://www.ncbi.nlm.nih.gov/research/pubtator3/,AIONER backbone + specialized normalizers
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Disease,Disease,"NCBI Disease, BC5CDR, BioRED",TaggerOne,MeSH ID,https://www.ncbi.nlm.nih.gov/research/pubtator3/,
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Chemical/Drug,Chemical / Drug,"NLM-Chem, BC5CDR",NLM-Chem Tagger,MeSH CID,https://www.ncbi.nlm.nih.gov/research/pubtator3/,
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Variant/Mutation,Variant / Mutation,"tmVar3 corpus, BioRED",tmVar3,dbSNP rs ID / HGVS format,https://www.ncbi.nlm.nih.gov/research/pubtator3/,
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Species/Organism,Species / Organism,"Species-800, BioRED",GNorm2 (species module),NCBI TaxID,https://www.ncbi.nlm.nih.gov/research/pubtator3/,
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Cell line,Cell line,"BioID, BioRED",TaggerOne,Cellosaurus CVCL,https://www.ncbi.nlm.nih.gov/research/pubtator3/,
+PubTator3,NCBI/NLM,2024,NER+NEN+RE,Relations,Relations (12 types),"BioRED, BC5CDR, ChemProt",BioREx (LinkBERT),Entity ID pairs,https://www.ncbi.nlm.nih.gov/research/pubtator3/,Best overall coverage + 12 relation types
+BERN2,DMIS-Lab,2022,NER+NEN,Gene/Protein,Gene / Protein,BC2GM,BioSyn hybrid (rule-based + SapBERT),NCBI Gene ID,https://github.com/dmis-lab/BERN2,Web service down since 2023
+BERN2,DMIS-Lab,2022,NER+NEN,Disease,Disease,NCBI Disease,BioSyn hybrid (rule-based + SapBERT),MeSH ID / OMIM,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,Chemical/Drug,Drug / Chemical,BC4CHEMD,BioSyn hybrid (rule-based + SapBERT),MeSH CID / CHEBI,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,Species/Organism,Species,Linnaeus,Rule-based dictionary,NCBI TaxID,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,Variant/Mutation,Mutation / Variant,tmVar 2.0 corpus,"tmVar 2.0 (CRF, rule-based)",dbSNP rs ID,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,Cell line,Cell line,JNLPBA,Cellosaurus dictionary,Cellosaurus CVCL,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,Cell type,Cell type,JNLPBA,Cell Ontology dictionary,Cell Ontology CL:,https://github.com/dmis-lab/BERN2,Unique cell type class
+BERN2,DMIS-Lab,2022,NER+NEN,DNA,DNA,JNLPBA,None,Span only,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,RNA,RNA,JNLPBA,None,Span only,https://github.com/dmis-lab/BERN2,
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Gene/Protein,Gene / Protein,"NLM-Gene, GNormPlus, BioRED","BioSyn (pretrained, BC2GN)",NCBI Gene ID (human only),https://github.com/flairNLP/flair,Best cross-corpus generalization
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Disease,Disease,"NCBI Disease, SCAI Disease, BioRED","BioSyn (pretrained, BC5CDR disease)",CTD Diseases (MEDIC),https://github.com/flairNLP/flair,
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Chemical/Drug,Chemical,"NLM-Chem, SCAI Chemical, BioRED","BioSyn (pretrained, BC5CDR chemical)",CTD Chemicals,https://github.com/flairNLP/flair,
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Species/Organism,Species / Organism,"Linnaeus, S800, BioRED",SapBERT (UMLS-pretrained),NCBI TaxID,https://github.com/flairNLP/flair,
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Cell line,Cell line,"BioID, BioRED",Cellosaurus dictionary,Cellosaurus CVCL,https://github.com/flairNLP/flair,
+HunFlair2,Humboldt-Universität,2024,NER+NEN,Variant/Mutation,Variant,BioRED,dbSNP dictionary,dbSNP rs ID (partial),https://github.com/flairNLP/flair,
+AIONER,NCBI/NLM,2023,NER only,Gene/Protein,Gene / Protein,"NLM-Gene, GNormPlus, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,NER backbone of PubTator3
+AIONER,NCBI/NLM,2023,NER only,Disease,Disease,"NCBI Disease, BC5CDR, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,
+AIONER,NCBI/NLM,2023,NER only,Chemical/Drug,Chemical / Drug,"NLM-Chem, BC5CDR, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,
+AIONER,NCBI/NLM,2023,NER only,Variant/Mutation,Variant / Mutation,"tmVar3 corpus, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,
+AIONER,NCBI/NLM,2023,NER only,Species/Organism,Species,"Species-800, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,
+AIONER,NCBI/NLM,2023,NER only,Cell line,Cell line,"BioID, BioRED (bridge)",None standalone,Span only,https://github.com/ncbi/AIONER,
+SciSpacy,AllenAI,2019,NER+NEN,Gene/Protein,Gene / Protein,"CRAFT, JNLPBA, BioNLP13CG",UMLS / GO / MeSH linker,UMLS CUI / GO: term,https://aclanthology.org/W19-5034/,Modular NER+NEN approach
+SciSpacy,AllenAI,2019,NER+NEN,Disease,Disease / Cancer,"BC5CDR, NCBI Disease",UMLS / MeSH linker,UMLS CUI / MeSH ID,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,Chemical/Drug,Chemical,BC5CDR,UMLS / RxNorm linker,UMLS CUI / RxNorm RxCUI,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,Anatomy,Anatomy (16 subtypes),"BioNLP13CG, CRAFT",UMLS / UBERON linker,UMLS CUI / UBERON ID,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,Species/Organism,Organism,"CRAFT, BioNLP13CG",NCBI Taxonomy linker,NCBI TaxID,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,Cell line,Cell / Cell line,JNLPBA,UMLS linker,UMLS CUI,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,Phenotype,Phenotype,"BC5CDR, NCBI Disease",HPO linker,HP: term (HPO),https://aclanthology.org/W19-5034/,Only tool with direct HPO linking
+SciSpacy,AllenAI,2019,NER+NEN,DNA/RNA,DNA / RNA,JNLPBA,None,Span only,https://aclanthology.org/W19-5034/,
+BENT,LASIGE,2023,NER+NEN,Gene/Protein,Gene / Protein,BC2GM,NILINKER + SapBERT (NCBI Gene KB),NCBI Gene ID,https://github.com/lasigeBioTM/bent,NILINKER handles NIL entities
+BENT,LASIGE,2023,NER+NEN,Gene/Protein,Gene / Protein,BC2GM,NILINKER + SapBERT (CTD-Genes KB),CTD Gene ID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Disease,Disease,"BC5CDR, MEDIC dictionary",NILINKER + SapBERT (MEDIC KB),MeSH ID / OMIM,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Disease,Disease,BC5CDR,NILINKER + SapBERT (Disease Ontology KB),DOID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Chemical/Drug,Chemical,BC5CDR,NILINKER + SapBERT (ChEBI KB),CHEBI ID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Chemical/Drug,Chemical,BC5CDR,NILINKER + SapBERT (CTD-Chemicals KB),CTD Chem ID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Species/Organism,Species,"Linnaeus, S800",NCBI Taxonomy dictionary,NCBI TaxID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Cell line,Cell line,"BioID, BioRED",Cellosaurus dictionary,Cellosaurus CVCL,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Anatomy,Anatomy,CTD-Anatomy corpus,NILINKER (CTD-Anatomy KB),CTD Anatomy ID,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Biological process,Biological process,CRAFT,NILINKER (Gene Ontology BP),GO: term,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Molecular function,Molecular function,CRAFT,NILINKER (Gene Ontology MF),GO: term,https://github.com/lasigeBioTM/bent,
+BENT,LASIGE,2023,NER+NEN,Cellular component,Cellular component,CRAFT,NILINKER (Gene Ontology CC),GO: term,https://github.com/lasigeBioTM/bent,
+Stanza-anatem,Stanford,2020,NER only,Anatomy,Anatomy,AnatEM,None,Span only,https://stanfordnlp.github.io/stanza/,BiLSTM-CRF + character-level LM
+Stanza-bc2gm,Stanford,2020,NER only,Gene/Protein,Gene / Protein,BC2GM,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc4chemd,Stanford,2020,NER only,Chemical/Drug,Chemical / Drug,BC4CHEMD,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc5cdr,Stanford,2020,NER only,Chemical/Drug,Chemical,BC5CDR,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc5cdr,Stanford,2020,NER only,Disease,Disease,BC5CDR,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Gene/Protein,Gene / Gene product,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Amino acid,Amino acid,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Cancer,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Pathological formation,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Cell type,Cell,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Cellular component,Cellular component,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organ,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Tissue,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism substance,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Anatomical system,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism subdivision,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Multi-tissue structure,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Developing anatomical structure,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Immaterial anatomical entity,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Species/Organism,Organism,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Chemical/Drug,Simple chemical,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Gene/Protein,Protein,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,DNA,DNA,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,RNA,RNA,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Cell type,Cell type,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Cell line,Cell line,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-linnaeus,Stanford,2020,NER+NEN,Species/Organism,Species / Organism,Linnaeus (100 full-text articles),NCBI Taxonomy dictionary,NCBI TaxID,https://stanfordnlp.github.io/stanza/,
+Stanza-ncbi_disease,Stanford,2020,NER+NEN,Disease,Disease,NCBI Disease (793 abstracts),Dictionary + rule-based,MeSH ID / OMIM ID,https://stanfordnlp.github.io/stanza/,
+Stanza-s800,Stanford,2020,NER+NEN,Species/Organism,Species / Organism,Species-800 (800 abstracts),NCBI Taxonomy dictionary,NCBI TaxID,https://stanfordnlp.github.io/stanza/,
+Stanza-i2b2,Stanford,2020,NER only,Disease,Problem / Disease,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,Clinical model
+Stanza-i2b2,Stanford,2020,NER only,Lab test,Test / Lab,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-i2b2,Stanford,2020,NER only,Procedure,Treatment / Procedure,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Lab test,Observation / Finding,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy modifier,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Observation modifier,Observation modifier,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Uncertainty,Uncertainty,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,Unique: Uncertainty as entity type
+cTAKES,Apache/Mayo,2010+,NER+NEN,Chemical/Drug,Drug / Medication,Mayo clinical corpus + i2b2 2009,RxNorm index (Lucene),UMLS CUI + RxNorm RxCUI,https://github.com/apache/ctakes,80M+ notes processed at Mayo
+cTAKES,Apache/Mayo,2010+,NER+NEN,Disease,Disease / Disorder,Mayo clinical corpus + i2b2 2009,UMLS dictionary (SNOMED-CT subset),UMLS CUI,https://github.com/apache/ctakes,
+cTAKES,Apache/Mayo,2010+,NER+NEN,Sign/Symptom,Sign / Symptom,Mayo clinical corpus + i2b2 2009,UMLS dictionary (SNOMED-CT subset),UMLS CUI,https://github.com/apache/ctakes,NegEx negation + THYME temporality
+cTAKES,Apache/Mayo,2010+,NER+NEN,Anatomy,Anatomy / Body site,Mayo clinical corpus,UMLS dictionary (SNOMED-CT subset),UMLS CUI,https://github.com/apache/ctakes,
+cTAKES,Apache/Mayo,2010+,NER+NEN,Procedure,Procedure,Mayo clinical corpus,UMLS dictionary (SNOMED-CT + CPT),UMLS CUI,https://github.com/apache/ctakes,
+MetaMap,NLM,1994-2024,NER+NEN,Disease,Disease / Disorder (dsyn),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,RETIRED December 31 2024
+MetaMap,NLM,1994-2024,NER+NEN,Sign/Symptom,Sign / Symptom (sosy T184),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Chemical/Drug,Drug / Chemical (phsu clnd),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Adverse effect,Adverse drug effect (inpo),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Anatomy,Anatomy (bpoc tisu cell),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Procedure,Procedure (topp diap lbpr),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Lab test,Lab test / Finding (lbpr),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Gene/Protein,Gene / Genome (gngm),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MetaMap,NLM,1994-2024,NER+NEN,Species/Organism,Species / Organism (orgm),Symbolic NLP + UMLS dictionary,UMLS Metathesaurus lookup,UMLS CUI only,https://github.com/LHNCBC/MetaMap-src,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Disease,Disease / Disorder,Self-supervised on MIMIC-III,SNOMED-CT (Clinical finding hierarchy),SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,v2.0 released August 2025 with RelCAT
+MedCAT,CogStack/KCL,2019+,NER+NEN,Sign/Symptom,Sign / Symptom,Self-supervised on MIMIC-III,SNOMED-CT (Clinical finding hierarchy),SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Chemical/Drug,Drug / Medication,Self-supervised on MIMIC-III,SNOMED-CT (Substance/Product hierarchy),SNOMED-CT SCTID / RxNorm,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Procedure,Procedure,Self-supervised on MIMIC-III,SNOMED-CT (Procedure hierarchy),SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Anatomy,Anatomy / Body structure,Self-supervised on MIMIC-III,SNOMED-CT (Body structure hierarchy),SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Lab test,Lab test / Finding,Self-supervised on MIMIC-III,SNOMED-CT (Observable entity hierarchy),SNOMED-CT SCTID / LOINC,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Adverse effect,Adverse drug reaction,Self-supervised on MIMIC-III,SNOMED-CT,SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Species/Organism,Species / Organism,Self-supervised on MIMIC-III,SNOMED-CT (Organism hierarchy),SNOMED-CT SCTID,https://github.com/CogStack/cogstack-nlp,
+MedCAT,CogStack/KCL,2019+,NER+NEN,Custom,Custom (any ontology),User-defined corpus,User-defined CDB,Configurable (HPO/ICD-10/LOINC/miRBase),https://github.com/CogStack/cogstack-nlp,Plugin system for custom ontologies
+CLAMP,UTHealth,2018+,NER+NEN,Disease,Disease / Disorder,"i2b2 2009/2010, SemEval 2014, UTNotes",UMLS encoder (vector space model),UMLS CUI + ICD-10,https://clamp.uth.edu/,Only tool with native LOINC output
+CLAMP,UTHealth,2018+,NER+NEN,Sign/Symptom,Sign / Symptom,"i2b2 2009/2010, UTNotes, MTSamples",UMLS encoder,UMLS CUI,https://clamp.uth.edu/,
+CLAMP,UTHealth,2018+,NER+NEN,Chemical/Drug,Drug / Medication,i2b2 2009 medication challenge,RxNorm via UMLS,UMLS CUI + RxNorm RxCUI,https://clamp.uth.edu/,
+CLAMP,UTHealth,2018+,NER+NEN,Adverse effect,Adverse drug effect,i2b2 + MTSamples,UMLS encoder,UMLS CUI,https://clamp.uth.edu/,
+CLAMP,UTHealth,2018+,NER+NEN,Lab test,Lab test + value,i2b2 2010 + UTNotes,LOINC (dedicated module),LOINC code,https://clamp.uth.edu/,Only tool with native LOINC output
+CLAMP,UTHealth,2018+,NER+NEN,Procedure,Procedure,i2b2 2010 + MTSamples,UMLS encoder (CPT via UMLS),UMLS CUI + CPT,https://clamp.uth.edu/,
+CLAMP,UTHealth,2018+,NER+NEN,Anatomy,Anatomy / Body site,i2b2 + MTSamples,UMLS encoder,UMLS CUI,https://clamp.uth.edu/,
+CLAMP,UTHealth,2018+,NER+NEN,Gene/Protein,Gene / Protein (limited),Dictionary only,UMLS dictionary,UMLS CUI only,https://clamp.uth.edu/,Limited gene/protein coverage
+MicrobiomeNER,Research Lab,2025,NER+NEN,Species/Organism,Bacteria/Archaea/Fungi,Microbiome-specific corpus (1410 articles),BioBERT fine-tuned,NCBI TaxID,https://www.biorxiv.org/content/10.1101/2025.08.29.671515v1,F1=96% across 14 microbiome domains
+TaxoNERD,Research Lab,2025,NER+NEN,Species/Organism,Taxonomic entities,Taxonomic corpus,Deep learning model,NCBI TaxID,Research paper,Handles scientific names + synonyms + abbreviations
+GLiNER-BioMed,Research Lab,2025,NER,Microbiome entities,13 categories including bacteria/microbiota,GutBrainIE corpus,Zero-shot natural language labels,Span only,arXiv paper,Gut-brain axis specialized
+MINERVA,Research Lab,2025,NER+NEN,Species/Organism,Microbes,Platform-specific corpus,Fine-tuned LLM,Microbe-Disease Association IDs,Research platform,3400+ microbes × 35000+ diseases
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Diet-Microbiome entities,15 entity types + microbes,DiMB-RE corpus (diet-microbiome),Transformer-based,Custom IDs,Research paper,Diet-microbiome interactions F1=0.80
