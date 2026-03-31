@@ -180,3 +180,17 @@ MicrobiomeNER,Research Lab,2025,NER,Microbiome functions,Beta diversity,Microbio
 MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome habitats,Gut microbiota,Microbiome literature corpus,GMrepo + MiMeDB,GMrepo + MiMeDB ID,Research system,Beneficial gut bacteria vs pathogens
 MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome habitats,Oral microbiome,Microbiome literature corpus,HOMD database,HOMD ID,Research system,Human oral microbiome
 MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome habitats,Skin microbiome,Microbiome literature corpus,Specialized DB,Custom ID,Research system,Human skin microbiota
+SparkNLP-JSL,John Snow Labs,2022,NER+NEN,Lab test,Test (laboratory pathology radiological),JSL clinical corpus,Healthcare NLP ontologies,LOINC / SNOMED-CT,https://nlp.johnsnowlabs.com/,ner_jsl comprehensive clinical model
+SparkNLP-measurements,John Snow Labs,2022,NER+NEN,Lab test,Lab results with values and units,JSL clinical corpus,Healthcare NLP ontologies,LOINC codes,https://nlp.johnsnowlabs.com/,ner_measurements specialized for lab values
+SparkNLP-JSL,John Snow Labs,2022,NER+NEN,Procedure,Medical procedures and interventions,JSL clinical corpus,Healthcare NLP ontologies,CPT / SNOMED-CT,https://nlp.johnsnowlabs.com/,Clinical procedure identification
+Med7,SpaCy Community,2019,NER only,Lab test,Tests and measurements,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,Specialized clinical NER for spaCy
+Med7,SpaCy Community,2019,NER only,Procedure,Medical procedures,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,Clinical interventions and processes
+Med7,SpaCy Community,2019,NER only,Chemical/Drug,Medications and dosages,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,MIMIC-III trained clinical model
+PubMedBERT-labs,Microsoft,2020,NER only,Lab test,Laboratory results and findings,Lab-focused fine-tuning corpus,None,Span only,https://github.com/ncbi/BERT_variants,Fine-tuned for lab result extraction
+ClinicalBERT-procedures,MIT,2019,NER only,Procedure,Clinical procedures and treatments,i2b2 + MIMIC-III,None,Span only,https://github.com/kexinhuang12345/clinicalBERT,Procedure-focused fine-tuning
+Amazon-Comprehend-Medical,Amazon,2018+,NER+NEN,Lab test,Tests Treatments Procedures,Proprietary clinical corpus,AWS medical ontologies,LOINC / CPT codes,https://aws.amazon.com/comprehend/medical/,Cloud-based medical NER service
+Amazon-Comprehend-Medical,Amazon,2018+,NER+NEN,Procedure,Medical procedures,Proprietary clinical corpus,AWS medical ontologies,CPT / ICD-10-PCS,https://aws.amazon.com/comprehend/medical/,Large-scale EHR processing
+Google-Healthcare-API,Google,2019+,NER+NEN,Lab test,Medical observations and tests,Proprietary clinical corpus,Google medical ontologies,LOINC codes,https://cloud.google.com/healthcare-api,Cloud-based healthcare NLP
+Google-Healthcare-API,Google,2019+,NER+NEN,Procedure,Medical procedures and interventions,Proprietary clinical corpus,Google medical ontologies,CPT / SNOMED-CT,https://cloud.google.com/healthcare-api,Healthcare API procedure extraction
+TaxoNERD-procedures,Research Lab,2025,NER+NEN,Procedure,Medical procedure mentions,Clinical procedure corpus,Procedure taxonomy,Custom procedure IDs,Research paper,Adapted for procedure extraction
+SciSpacy-procedures,AllenAI,2019,NER+NEN,Procedure,Clinical procedures,CRAFT + clinical extensions,UMLS procedure linker,UMLS CUI (procedure),https://aclanthology.org/W19-5034/,Procedure-adapted SciSpacy model
