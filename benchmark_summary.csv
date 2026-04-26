@@ -1,0 +1,6 @@
+corpus,granularity,entity_types,num_entity_types,has_normalization,normalization_dbs,has_relations,relation_types,train_rows,validation_rows,test_rows,hf_dataset
+BC5CDR,document,Chemical; Disease,2,yes,MeSH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb)
+BC2GM,sentence,GENE,1,no,,no,,12500,2500,5000,spyysalo/bc2gm_corpus
+NCBI Disease,document,SpecificDisease; DiseaseClass; CompositeMention; Modifier,4,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb)
+BioRED,document,GeneOrGeneProduct; DiseaseOrPhenotypicFeature; ChemicalEntity; OrganismTaxon; SequenceVariant; CellLine,6,yes,NCBIGene; MeSH; OMIM; NCBITaxon; dbSNP; Cellosaurus,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb)
+JNLPBA,sentence (token-as-entity),DNA; RNA; protein; cell_line; cell_type,5,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb)

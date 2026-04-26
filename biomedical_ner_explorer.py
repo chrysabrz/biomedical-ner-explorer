@@ -27,38 +27,41 @@ import plotly.graph_objects as go
 import plotly.express as px
 import networkx as nx
 
-# ─── NeuroSight-aligned palette (neurosight_app_final.py ENTITY_FIELDS + graph accents) ───
+# Purple-led palette (primary accent + complementary hues for chart series)
+_NS_PURPLE = "#A855F7"
+_NS_VIOLET = "#8B5CF6"
+_NS_PURPLE_DEEP = "#6D28D9"
+_NS_LAVENDER = "#C4B5FD"
+_NS_FUCHSIA = "#D946EF"
 _NS_BLUE = "#1A7BD4"
 _NS_CYAN = "#06B6D4"
-_NS_PURPLE = "#A855F7"
 _NS_AMBER = "#F59E0B"
 _NS_GREEN = "#10B981"
 _NS_ROSE = "#F43F5E"
 _NS_ORANGE = "#F97316"
 _NS_SKY = "#0EA5E9"
-_NS_VIOLET = "#8B5CF6"
 _NS_RED = "#EF4444"
 _NS_TEAL = "#14B8A6"
 _NS_GRAY = "#6B7280"
 
 NS_DISCRETE_PALETTE = [
-    _NS_BLUE, _NS_CYAN, _NS_PURPLE, _NS_AMBER, _NS_ROSE, _NS_GREEN,
-    _NS_ORANGE, _NS_SKY, _NS_VIOLET, _NS_RED, _NS_TEAL,
+    _NS_PURPLE, _NS_VIOLET, _NS_FUCHSIA, _NS_PURPLE_DEEP, _NS_LAVENDER,
+    _NS_AMBER, _NS_ROSE, _NS_GREEN, _NS_CYAN, _NS_ORANGE, _NS_SKY, _NS_TEAL,
 ]
 
-# Network node roles → same family as NeuroSight relationship colouring
+# Network node roles - same family as NeuroSight relationship colouring
 NETWORK_NODE_COLORS = {
-    "tool": _NS_BLUE,
-    "entity": _NS_PURPLE,
+    "tool": _NS_PURPLE,
+    "entity": _NS_VIOLET,
     "corpus": _NS_CYAN,
     "id_output": _NS_GREEN,
 }
 
 NS_HEATMAP_SCALE = [
-    [0.0, "#f1f5f9"],
-    [0.35, "#bfdbfe"],
-    [0.65, _NS_BLUE],
-    [1.0, "#1e40af"],
+    [0.0, "#faf5ff"],
+    [0.35, "#ddd6fe"],
+    [0.65, _NS_PURPLE],
+    [1.0, _NS_PURPLE_DEEP],
 ]
 
 NS_NORM_BAR_SCALE = [
@@ -67,17 +70,17 @@ NS_NORM_BAR_SCALE = [
     [1.0, _NS_GREEN],
 ]
 
-# Light grey Streamlit + Plotly surfaces
-THEME_PAGE = "#e8eaed"
-THEME_SIDEBAR = "#dfe3e8"
-THEME_TEXT = "#1e293b"
-THEME_TEXT_MUTED = "#475569"
-THEME_BORDER = "#c5cad3"
-THEME_PLOT_PAPER = "#f1f3f5"
+# Light-lavender surfaces (purple-tinted, still neutral enough for dataframes)
+THEME_PAGE = "#f5f3ff"
+THEME_SIDEBAR = "#ede9fe"
+THEME_TEXT = "#1e1b4b"
+THEME_TEXT_MUTED = "#4c1d95"
+THEME_BORDER = "#c4b5fd"
+THEME_PLOT_PAPER = "#faf5ff"
 THEME_PLOT_BG = "#fafafa"
-THEME_PLOT_FONT = "#334155"
+THEME_PLOT_FONT = "#3b0764"
 THEME_HOVER_BG = "#ffffff"
-THEME_HOVER_FONT = "#0f172a"
+THEME_HOVER_FONT = "#1e1b4b"
 
 DEFAULT_CSV = SCRIPT_DIR / "comprehensive_biomedical_ner_tools.csv"
 
@@ -232,6 +235,20 @@ st.markdown(
     [data-testid="stTabs"] button { color: """ + THEME_TEXT + """ !important; }
     [data-testid="stMetricValue"] { color: """ + THEME_TEXT + """ !important; }
     [data-testid="stMetricLabel"] { color: """ + THEME_TEXT_MUTED + """ !important; }
+    /* Multiselect chips: dark purple with white text instead of Streamlit's default red */
+    span[data-baseweb="tag"],
+    div[data-baseweb="tag"] {
+        background-color: """ + _NS_PURPLE_DEEP + """ !important;
+        color: #ffffff !important;
+    }
+    span[data-baseweb="tag"] *,
+    div[data-baseweb="tag"] * {
+        color: #ffffff !important;
+    }
+    span[data-baseweb="tag"] svg,
+    div[data-baseweb="tag"] svg {
+        fill: #ffffff !important;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -242,7 +259,7 @@ st.sidebar.header(" Data Input")
 if DEFAULT_CSV.exists():
     st.sidebar.caption(f"Default: `{DEFAULT_CSV.name}`")
 else:
-    st.sidebar.warning(f"Default CSV not found: `{DEFAULT_CSV.name}` — upload a file below.")
+    st.sidebar.warning(f"Default CSV not found: `{DEFAULT_CSV.name}` - upload a file below.")
 
 uploaded_file = st.sidebar.file_uploader(
     "Optional: upload a different CSV",
@@ -252,7 +269,7 @@ uploaded_file = st.sidebar.file_uploader(
 
 
 def _norm_text_cell(val):
-    """Strip, NFKC unicode, collapse spaces — avoids duplicate Entity type / Tool labels in the UI."""
+    """Strip, NFKC unicode, collapse spaces - avoids duplicate Entity type / Tool labels in the UI."""
     if pd.isna(val):
         return val
     t = str(val).replace("\u00a0", " ").replace("\u200b", "")
@@ -300,9 +317,9 @@ def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
     )
     biomedical_tools = {
         "PubTator3", "BERN2", "HunFlair2", "AIONER", "SciSpacy", "bent",
-        "Stanza — anatem", "Stanza — bc2gm", "Stanza — bc4chemd",
-        "Stanza — bc5cdr", "Stanza — bionlp13cg", "Stanza — jnlpba",
-        "Stanza — linnaeus", "Stanza — ncbi_disease", "Stanza — s800",
+        "Stanza-anatem", "Stanza-bc2gm", "Stanza-bc4chemd",
+        "Stanza-bc5cdr", "Stanza-bionlp13cg", "Stanza-jnlpba",
+        "Stanza-linnaeus", "Stanza-ncbi_disease", "Stanza-s800",
     }
     df["Section"] = df["Tool"].apply(
         lambda x: "Biomedical" if x in biomedical_tools else "Clinical"
@@ -412,15 +429,16 @@ if df is not None:
         st.warning("Select at least one **Tool** in the sidebar.")
     elif filtered_df.empty:
         st.info(
-            "No rows match the current filters — try widening **Tools**, **Entity types**, "
+            "No rows match the current filters - try widening **Tools**, **Entity types**, "
             "or clearing **Training corpora**."
         )
 
     # Main content tabs
-    tab1, tab2, tab3, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab_corpora, tab5, tab6 = st.tabs([
         " Entity Coverage Overview",
         " Entity Explorer",
         "Training Corpora Analysis",
+        "Benchmark Corpora",
         " Per-entity analysis",
         " Per-tool view",
     ])
@@ -502,7 +520,7 @@ if df is not None:
                     for corpus in [c.strip() for c in str(corpora_raw).split(",") if c.strip()]:
                         sun_records.append({"Entity": pick_ent, "Tool": tool, "Corpus": corpus, "ID Output": id_out})
                 else:
-                    sun_records.append({"Entity": pick_ent, "Tool": tool, "Corpus": "—", "ID Output": id_out})
+                    sun_records.append({"Entity": pick_ent, "Tool": tool, "Corpus": "-", "ID Output": id_out})
             if sun_records:
                 sun_df = pd.DataFrame(sun_records).drop_duplicates()
                 fig_sun = px.sunburst(
@@ -527,7 +545,7 @@ if df is not None:
                     info_cols = st.columns([1, 1, 1])
                     with info_cols[0]:
                         tasks = ", ".join(sorted(tool_slice["Task"].dropna().unique()))
-                        st.markdown(f"**Task:** {tasks}" if tasks else "**Task:** —")
+                        st.markdown(f"**Task:** {tasks}" if tasks else "**Task:** -")
                         if "Entity_Type_Original" in tool_slice.columns:
                             orig = ", ".join(sorted(tool_slice["Entity_Type_Original"].dropna().unique()))
                             if orig:
@@ -541,7 +559,7 @@ if df is not None:
                             for c in sorted(corpora):
                                 st.write(f"  - {c}")
                         else:
-                            st.caption("—")
+                            st.caption("-")
                     with info_cols[2]:
                         ids = sorted({str(v).strip() for v in tool_slice["ID output"].dropna() if str(v).strip() and str(v).strip() != "Span only"})
                         norms = sorted({str(v).strip() for v in tool_slice["Normalization tool"].dropna() if str(v).strip()}) if "Normalization tool" in tool_slice.columns else []
@@ -637,7 +655,7 @@ if df is not None:
                     if row["n_tools"] < 2:
                         continue
                     st.write(
-                        f"**{row['corpus']}** — **{row['n_tools']} tools**, "
+                        f"**{row['corpus']}** - **{row['n_tools']} tools**, "
                         f"{row['n_rows']} table row(s)"
                     )
                     st.write(f"   → {', '.join(row['tools'])}")
@@ -649,6 +667,192 @@ if df is not None:
                     st.caption("No corpus appears under more than one tool in the current filter.")
             else:
                 st.caption("No corpus data in the current filter.")
+
+    with tab_corpora:
+        st.header("Benchmark Corpora")
+        st.markdown(
+            "Annotated biomedical corpora used to train and evaluate NER/NEN tools. "
+            "Five corpora, 18 distinct entity types, sourced via Hugging Face "
+            "(`bigbio` and `spyysalo`)."
+        )
+
+        bench_wide_path = SCRIPT_DIR / "benchmark_summary.csv"
+        bench_long_path = SCRIPT_DIR / "benchmark_summary_by_entity.csv"
+
+        if not bench_wide_path.exists() or not bench_long_path.exists():
+            st.warning(
+                "Benchmark CSVs not found. Place `benchmark_summary.csv` and "
+                "`benchmark_summary_by_entity.csv` next to this script."
+            )
+        else:
+            bench_wide = pd.read_csv(bench_wide_path)
+            bench_long = pd.read_csv(bench_long_path)
+
+            def _fmt_count(v):
+                if pd.isna(v):
+                    return "-"
+                return f"{int(v):,}"
+
+            bc1, bc2, bc3, bc4 = st.columns(4)
+            with bc1:
+                st.metric("Corpora", len(bench_wide))
+            with bc2:
+                st.metric("Entity types (long)", len(bench_long))
+            with bc3:
+                st.metric(
+                    "With normalization",
+                    int((bench_wide["has_normalization"] == "yes").sum()),
+                )
+            with bc4:
+                st.metric(
+                    "With relations",
+                    int((bench_wide["has_relations"] == "yes").sum()),
+                )
+
+            st.markdown("### Filters")
+            fc1, fc2, fc3 = st.columns([2, 2, 1])
+            with fc1:
+                bench_corpora_options = sorted(bench_long["corpus"].unique())
+                sel_bench_corpora = st.multiselect(
+                    "Corpora",
+                    options=bench_corpora_options,
+                    default=bench_corpora_options,
+                    key="bench_corpora_pick",
+                )
+            with fc2:
+                bench_entity_options = sorted(bench_long["entity_type"].unique())
+                sel_bench_entities = st.multiselect(
+                    "Entity types",
+                    options=bench_entity_options,
+                    default=bench_entity_options,
+                    key="bench_entity_pick",
+                )
+            with fc3:
+                bench_normed_only = st.checkbox(
+                    "Normalized only",
+                    key="bench_normed_only",
+                    help="Keep only (corpus, entity_type) pairs that are linked to an external ID database.",
+                )
+
+            long_mask = (
+                bench_long["corpus"].isin(sel_bench_corpora)
+                & bench_long["entity_type"].isin(sel_bench_entities)
+            )
+            if bench_normed_only:
+                long_mask &= bench_long["is_normalized"] == "yes"
+            long_view = bench_long[long_mask].copy()
+            wide_view = bench_wide[bench_wide["corpus"].isin(sel_bench_corpora)].copy()
+
+            st.subheader("Corpus comparison (wide)")
+            st.dataframe(
+                wide_view.rename(columns={
+                    "corpus": "Corpus",
+                    "granularity": "Granularity",
+                    "entity_types": "Entity types",
+                    "num_entity_types": "# entity types",
+                    "has_normalization": "Normalized",
+                    "normalization_dbs": "Normalization DBs",
+                    "has_relations": "Has relations",
+                    "relation_types": "Relation types",
+                    "train_rows": "Train",
+                    "validation_rows": "Validation",
+                    "test_rows": "Test",
+                    "hf_dataset": "Hugging Face dataset",
+                }),
+                use_container_width=True,
+                hide_index=True,
+            )
+
+            st.subheader("Per-entity breakdown (long)")
+            if long_view.empty:
+                st.info("No entities match the current filter.")
+            else:
+                display_cols = [
+                    "corpus", "granularity", "entity_type",
+                    "is_normalized", "normalization_dbs",
+                    "corpus_has_relations",
+                    "train_rows", "validation_rows", "test_rows",
+                    "hf_dataset",
+                ]
+                cols = [c for c in display_cols if c in long_view.columns]
+                st.dataframe(
+                    long_view[cols].rename(columns={
+                        "corpus": "Corpus",
+                        "granularity": "Granularity",
+                        "entity_type": "Entity type",
+                        "is_normalized": "Normalized",
+                        "normalization_dbs": "Normalization DBs",
+                        "corpus_has_relations": "Corpus has relations",
+                        "train_rows": "Train",
+                        "validation_rows": "Validation",
+                        "test_rows": "Test",
+                        "hf_dataset": "Hugging Face dataset",
+                    }),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+
+                sun_df = long_view.assign(
+                    norm_label=long_view["normalization_dbs"]
+                    .fillna("(no normalization)")
+                    .replace("", "(no normalization)")
+                )
+                fig_bench = px.sunburst(
+                    sun_df,
+                    path=["corpus", "entity_type", "norm_label"],
+                    title="Corpus -> Entity type -> Normalization DB",
+                    color_discrete_sequence=NS_DISCRETE_PALETTE,
+                )
+                fig_bench.update_layout(
+                    height=520,
+                    paper_bgcolor=THEME_PLOT_PAPER,
+                    font=dict(color=THEME_PLOT_FONT),
+                    margin=dict(t=50, b=20, l=20, r=20),
+                )
+                st.plotly_chart(fig_bench, use_container_width=True)
+
+            st.subheader("Per-corpus detail")
+            for _, row in wide_view.iterrows():
+                title = (
+                    f"**{row['corpus']}** - {row['granularity']}, "
+                    f"{int(row['num_entity_types'])} entity type"
+                    f"{'s' if int(row['num_entity_types']) != 1 else ''}"
+                )
+                with st.expander(title):
+                    ents = [e.strip() for e in str(row["entity_types"]).split(";") if e.strip()]
+                    rels = (
+                        [r.strip() for r in str(row["relation_types"]).split(";") if r.strip()]
+                        if pd.notna(row["relation_types"]) else []
+                    )
+                    norms = (
+                        [n.strip() for n in str(row["normalization_dbs"]).split(";") if n.strip()]
+                        if pd.notna(row["normalization_dbs"]) else []
+                    )
+                    col_a, col_b = st.columns([1, 1])
+                    with col_a:
+                        st.markdown("**Entity types**")
+                        for e in ents:
+                            st.write(f"- {e}")
+                        if norms:
+                            st.markdown("**Normalization DBs**")
+                            for n in norms:
+                                st.write(f"- {n}")
+                        else:
+                            st.markdown("**Normalization:** none")
+                    with col_b:
+                        st.markdown(
+                            "**Splits**  \n"
+                            f"- Train: {_fmt_count(row['train_rows'])}  \n"
+                            f"- Validation: {_fmt_count(row['validation_rows'])}  \n"
+                            f"- Test: {_fmt_count(row['test_rows'])}"
+                        )
+                        if rels:
+                            st.markdown(f"**Relations** ({len(rels)} types)")
+                            for r in rels:
+                                st.write(f"- {r}")
+                        else:
+                            st.markdown("**Relations:** none")
+                        st.markdown(f"**Hugging Face:** `{row['hf_dataset']}`")
 
     with tab5:
         st.header("Per-entity analysis")
@@ -738,7 +942,7 @@ if df is not None:
                         for v in nt_vals:
                             st.write(f"• {v}")
                     else:
-                        st.caption("—")
+                        st.caption("-")
 
             st.subheader("All tool rows for this entity")
             preferred_cols = [
@@ -779,7 +983,7 @@ if df is not None:
                 st.metric("Entity types", tool_rows["Entity type"].nunique())
             with m2:
                 tasks_str = ", ".join(sorted(tool_rows["Task"].dropna().unique()))
-                st.metric("Tasks", tasks_str if tasks_str else "—")
+                st.metric("Tasks", tasks_str if tasks_str else "-")
             with m3:
                 norm_count = tool_rows[
                     (tool_rows["ID output"].notna())
@@ -869,10 +1073,11 @@ else:
     2. Use filters to focus on specific tool categories or entity types  
     3. Explore the different views:
        - **Entity Coverage**: See which tools cover which entities
-       - **Network Graph**: NeuroSight-style interactive cluster graph (zoom, pan, hovers)
-       - **Training Corpora**: Discover shared training datasets
-       - **ID Output**: Analyze normalization and identifier formats
-       - **Per-entity analysis**: One entity at a time — tables, corpora, IDs, charts
+       - **Entity Explorer**: Pick an entity to see every tool that recognises it
+       - **Training Corpora**: Discover shared training datasets across tools
+       - **Benchmark Corpora**: 5 annotated corpora (BC5CDR, BC2GM, NCBI Disease, BioRED, JNLPBA), 18 entity types, normalization DBs, relations, splits
+       - **Per-entity analysis**: One entity at a time - tables, corpora, IDs, charts
+       - **Per-tool view**: Drill into a single tool's entities and outputs
     
     **Key insights you can discover:**
     - Which entity types are well-covered vs gaps with single-tool coverage

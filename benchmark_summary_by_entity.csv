@@ -1,0 +1,19 @@
+corpus,granularity,entity_type,is_normalized,normalization_dbs,corpus_has_relations,corpus_relation_types,train_rows,validation_rows,test_rows,hf_dataset,notes
+BC5CDR,document,Chemical,yes,MESH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
+BC5CDR,document,Disease,yes,MESH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
+BC2GM,sentence,GENE,no,,no,,12500,2500,5000,spyysalo/bc2gm_corpus,IOB-tagged sentences; no document grouping.
+NCBI Disease,document,SpecificDisease,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Single specific disease (e.g. 'adenomatous polyposis coli').
+NCBI Disease,document,DiseaseClass,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease class or general term (e.g. 'cancer'; 'tumours').
+NCBI Disease,document,CompositeMention,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),One surface mention covering 2+ diseases; multiple normalized IDs.
+NCBI Disease,document,Modifier,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease term used adjectivally on another concept.
+BioRED,document,GeneOrGeneProduct,yes,NCBIGene,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,DiseaseOrPhenotypicFeature,yes,MESH; OMIM,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,ChemicalEntity,yes,MESH,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,OrganismTaxon,yes,NCBITaxon,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,SequenceVariant,yes,dbSNP; tmVar,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),Variants normalized to dbSNP rs IDs or tmVar.
+BioRED,document,CellLine,yes,Cellosaurus,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+JNLPBA,sentence (token-as-entity),DNA,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
+JNLPBA,sentence (token-as-entity),RNA,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
+JNLPBA,sentence (token-as-entity),protein,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
+JNLPBA,sentence (token-as-entity),cell_line,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
+JNLPBA,sentence (token-as-entity),cell_type,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
