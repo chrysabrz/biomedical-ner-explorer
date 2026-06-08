@@ -9,6 +9,8 @@ Usage:
 Loads the bundled CSV next to this script by default; optional upload overrides.
 """
 
+from __future__ import annotations
+
 import io
 import math
 import sys
@@ -212,6 +214,16 @@ st.markdown(
     .stApp, [data-testid="stAppViewContainer"], .main .block-container {
         background-color: """ + THEME_PAGE + """ !important;
         color: """ + THEME_TEXT + """ !important;
+    }
+    /* Top header bar (Deploy / hamburger toolbar) stayed white - tint it to match the page */
+    [data-testid="stHeader"], header[data-testid="stHeader"] {
+        background: """ + THEME_PAGE + """ !important;
+    }
+    [data-testid="stHeader"] * {
+        color: """ + THEME_TEXT + """ !important;
+    }
+    [data-testid="stToolbar"], [data-testid="stDecoration"] {
+        background: transparent !important;
     }
     section[data-testid="stSidebar"] {
         background: """ + THEME_SIDEBAR + """ !important;
@@ -693,90 +705,39 @@ if df is not None:
                     return "-"
                 return f"{int(v):,}"
 
-            bc1, bc2, bc3, bc4 = st.columns(4)
-            with bc1:
-                st.metric("Corpora", len(bench_wide))
-            with bc2:
-                st.metric("Entity types (long)", len(bench_long))
-            with bc3:
-                st.metric(
-                    "With normalization",
-                    int((bench_wide["has_normalization"] == "yes").sum()),
-                )
-            with bc4:
-                st.metric(
-                    "With relations",
-                    int((bench_wide["has_relations"] == "yes").sum()),
-                )
-
-            st.markdown("### Filters")
-            fc1, fc2, fc3 = st.columns([2, 2, 1])
-            with fc1:
-                bench_corpora_options = sorted(bench_long["corpus"].unique())
-                sel_bench_corpora = st.multiselect(
-                    "Corpora",
-                    options=bench_corpora_options,
-                    default=bench_corpora_options,
-                    key="bench_corpora_pick",
-                )
-            with fc2:
-                bench_entity_options = sorted(bench_long["entity_type"].unique())
-                sel_bench_entities = st.multiselect(
-                    "Entity types",
-                    options=bench_entity_options,
-                    default=bench_entity_options,
-                    key="bench_entity_pick",
-                )
-            with fc3:
-                bench_normed_only = st.checkbox(
-                    "Normalized only",
-                    key="bench_normed_only",
-                    help="Keep only (corpus, entity_type) pairs that are linked to an external ID database.",
-                )
-
-            long_mask = (
-                bench_long["corpus"].isin(sel_bench_corpora)
-                & bench_long["entity_type"].isin(sel_bench_entities)
-            )
-            if bench_normed_only:
-                long_mask &= bench_long["is_normalized"] == "yes"
-            long_view = bench_long[long_mask].copy()
-            wide_view = bench_wide[bench_wide["corpus"].isin(sel_bench_corpora)].copy()
-
-            st.subheader("Corpus comparison (wide)")
-            st.dataframe(
-                wide_view.rename(columns={
-                    "corpus": "Corpus",
-                    "granularity": "Granularity",
-                    "entity_types": "Entity types",
-                    "num_entity_types": "# entity types",
-                    "has_normalization": "Normalized",
-                    "normalization_dbs": "Normalization DBs",
-                    "has_relations": "Has relations",
-                    "relation_types": "Relation types",
-                    "train_rows": "Train",
-                    "validation_rows": "Validation",
-                    "test_rows": "Test",
-                    "hf_dataset": "Hugging Face dataset",
-                }),
-                use_container_width=True,
-                hide_index=True,
-            )
-
-            st.subheader("Per-entity breakdown (long)")
-            if long_view.empty:
-                st.info("No entities match the current filter.")
+            corpus_options = sorted(bench_wide["corpus"].astype(str).unique(), key=str.lower)
+            if not corpus_options:
+                st.warning("No corpora found in the benchmark CSVs.")
             else:
+                pick_corpus = st.selectbox(
+                    "Corpus",
+                    options=corpus_options,
+                    key="bench_corpus_pick",
+                )
+                row = bench_wide[bench_wide["corpus"] == pick_corpus].iloc[0]
+                sub = bench_long[bench_long["corpus"] == pick_corpus].copy()
+
+                ents = [e.strip() for e in str(row["entity_types"]).split(";") if e.strip()]
+                rels = (
+                    [r.strip() for r in str(row["relation_types"]).split(";") if r.strip()]
+                    if pd.notna(row["relation_types"]) else []
+                )
+                norms = (
+                    [n.strip() for n in str(row["normalization_dbs"]).split(";") if n.strip()]
+                    if pd.notna(row["normalization_dbs"]) else []
+                )
+
+                st.subheader(f"All entity rows for {pick_corpus}")
                 display_cols = [
                     "corpus", "granularity", "entity_type",
                     "is_normalized", "normalization_dbs",
                     "corpus_has_relations",
                     "train_rows", "validation_rows", "test_rows",
-                    "hf_dataset",
+                    "hf_dataset", "notes",
                 ]
-                cols = [c for c in display_cols if c in long_view.columns]
+                cols = [c for c in display_cols if c in sub.columns]
                 st.dataframe(
-                    long_view[cols].rename(columns={
+                    sub[cols].rename(columns={
                         "corpus": "Corpus",
                         "granularity": "Granularity",
                         "entity_type": "Entity type",
@@ -787,72 +748,51 @@ if df is not None:
                         "validation_rows": "Validation",
                         "test_rows": "Test",
                         "hf_dataset": "Hugging Face dataset",
+                        "notes": "Notes",
                     }),
                     use_container_width=True,
                     hide_index=True,
                 )
 
-                sun_df = long_view.assign(
-                    norm_label=long_view["normalization_dbs"]
-                    .fillna("(no normalization)")
-                    .replace("", "(no normalization)")
-                )
-                fig_bench = px.sunburst(
-                    sun_df,
-                    path=["corpus", "entity_type", "norm_label"],
-                    title="Corpus -> Entity type -> Normalization DB",
-                    color_discrete_sequence=NS_DISCRETE_PALETTE,
-                )
-                fig_bench.update_layout(
-                    height=520,
-                    paper_bgcolor=THEME_PLOT_PAPER,
-                    font=dict(color=THEME_PLOT_FONT),
-                    margin=dict(t=50, b=20, l=20, r=20),
-                )
-                st.plotly_chart(fig_bench, use_container_width=True)
+                m1, m2, m3, m4 = st.columns(4)
+                with m1:
+                    st.metric("Entity types", int(row["num_entity_types"]))
+                with m2:
+                    st.metric("Granularity", str(row["granularity"]))
+                with m3:
+                    st.metric("Normalized", "Yes" if str(row["has_normalization"]) == "yes" else "No")
+                with m4:
+                    st.metric("Relations", f"{len(rels)} types" if rels else "None")
 
-            st.subheader("Per-corpus detail")
-            for _, row in wide_view.iterrows():
-                title = (
-                    f"**{row['corpus']}** - {row['granularity']}, "
-                    f"{int(row['num_entity_types'])} entity type"
-                    f"{'s' if int(row['num_entity_types']) != 1 else ''}"
-                )
-                with st.expander(title):
-                    ents = [e.strip() for e in str(row["entity_types"]).split(";") if e.strip()]
-                    rels = (
-                        [r.strip() for r in str(row["relation_types"]).split(";") if r.strip()]
-                        if pd.notna(row["relation_types"]) else []
-                    )
-                    norms = (
-                        [n.strip() for n in str(row["normalization_dbs"]).split(";") if n.strip()]
-                        if pd.notna(row["normalization_dbs"]) else []
-                    )
-                    col_a, col_b = st.columns([1, 1])
-                    with col_a:
-                        st.markdown("**Entity types**")
+                st.markdown(f"**Hugging Face:** `{row['hf_dataset']}`")
+
+                agg_left, agg_right = st.columns(2)
+                with agg_left:
+                    st.subheader("Entity types")
+                    if ents:
                         for e in ents:
                             st.write(f"- {e}")
-                        if norms:
-                            st.markdown("**Normalization DBs**")
-                            for n in norms:
-                                st.write(f"- {n}")
-                        else:
-                            st.markdown("**Normalization:** none")
-                    with col_b:
-                        st.markdown(
-                            "**Splits**  \n"
-                            f"- Train: {_fmt_count(row['train_rows'])}  \n"
-                            f"- Validation: {_fmt_count(row['validation_rows'])}  \n"
-                            f"- Test: {_fmt_count(row['test_rows'])}"
-                        )
-                        if rels:
-                            st.markdown(f"**Relations** ({len(rels)} types)")
-                            for r in rels:
-                                st.write(f"- {r}")
-                        else:
-                            st.markdown("**Relations:** none")
-                        st.markdown(f"**Hugging Face:** `{row['hf_dataset']}`")
+                    else:
+                        st.caption("-")
+                    st.subheader("Normalization DBs")
+                    if norms:
+                        for n in norms:
+                            st.write(f"- {n}")
+                    else:
+                        st.caption("None")
+                with agg_right:
+                    st.subheader("Splits")
+                    st.markdown(
+                        f"- Train: {_fmt_count(row['train_rows'])}  \n"
+                        f"- Validation: {_fmt_count(row['validation_rows'])}  \n"
+                        f"- Test: {_fmt_count(row['test_rows'])}"
+                    )
+                    st.subheader("Relations")
+                    if rels:
+                        for r in rels:
+                            st.write(f"- {r}")
+                    else:
+                        st.caption("None")
 
     with tab5:
         st.header("Per-entity analysis")

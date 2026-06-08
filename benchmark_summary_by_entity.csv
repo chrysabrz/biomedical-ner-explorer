@@ -1,14 +1,14 @@
 corpus,granularity,entity_type,is_normalized,normalization_dbs,corpus_has_relations,corpus_relation_types,train_rows,validation_rows,test_rows,hf_dataset,notes
-BC5CDR,document,Chemical,yes,MESH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
-BC5CDR,document,Disease,yes,MESH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
+BC5CDR,document,Chemical,yes,MeSH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
+BC5CDR,document,Disease,yes,MeSH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
 BC2GM,sentence,GENE,no,,no,,12500,2500,5000,spyysalo/bc2gm_corpus,IOB-tagged sentences; no document grouping.
-NCBI Disease,document,SpecificDisease,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Single specific disease (e.g. 'adenomatous polyposis coli').
-NCBI Disease,document,DiseaseClass,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease class or general term (e.g. 'cancer'; 'tumours').
-NCBI Disease,document,CompositeMention,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),One surface mention covering 2+ diseases; multiple normalized IDs.
-NCBI Disease,document,Modifier,yes,MESH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease term used adjectivally on another concept.
+NCBI Disease,document,SpecificDisease,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Single specific disease (e.g. 'adenomatous polyposis coli').
+NCBI Disease,document,DiseaseClass,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease class or general term (e.g. 'cancer'; 'tumours').
+NCBI Disease,document,CompositeMention,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),One surface mention covering 2+ diseases; multiple normalized IDs.
+NCBI Disease,document,Modifier,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),Disease term used adjectivally on another concept.
 BioRED,document,GeneOrGeneProduct,yes,NCBIGene,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
-BioRED,document,DiseaseOrPhenotypicFeature,yes,MESH; OMIM,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
-BioRED,document,ChemicalEntity,yes,MESH,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,DiseaseOrPhenotypicFeature,yes,MeSH; OMIM,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+BioRED,document,ChemicalEntity,yes,MeSH,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
 BioRED,document,OrganismTaxon,yes,NCBITaxon,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
 BioRED,document,SequenceVariant,yes,dbSNP; tmVar,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),Variants normalized to dbSNP rs IDs or tmVar.
 BioRED,document,CellLine,yes,Cellosaurus,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
@@ -17,3 +17,140 @@ JNLPBA,sentence (token-as-entity),RNA,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_
 JNLPBA,sentence (token-as-entity),protein,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
 JNLPBA,sentence (token-as-entity),cell_line,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
 JNLPBA,sentence (token-as-entity),cell_type,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),Token-as-entity rows derived from IOB; merge consecutive B-/I- to recover spans.
+AnatEM,document,Organism subdivision,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),Anatomical types defined w.r.t. the Common Anatomy Reference Ontology (CARO).
+AnatEM,document,Anatomical system,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Organ,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Multi-tissue structure,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Tissue,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Cell,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Developing anatomical structure,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Cellular component,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Organism substance,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Immaterial anatomical entity,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Pathological formation,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+AnatEM,document,Cancer,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),Cancer-focused extension type beyond the base AnEM types.
+BC4CHEMD,document,SYSTEMATIC,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),CHEMDNER mention class (IUPAC-style systematic name). Many setups collapse all 7 classes to one CHEMICAL label.
+BC4CHEMD,document,TRIVIAL,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),Trivial/common name.
+BC4CHEMD,document,FORMULA,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),Molecular formula.
+BC4CHEMD,document,ABBREVIATION,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),Abbreviation/acronym.
+BC4CHEMD,document,FAMILY,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),Chemical family/class.
+BC4CHEMD,document,MULTIPLE,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),Non-contiguous/multiple-name mention.
+BC4CHEMD,document,IDENTIFIER,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),"Database/registry identifier string (mention-type label, not a DB link)."
+GENIA,document,protein_molecule,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_family_or_group,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_complex,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_subunit,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_substructure,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_domain_or_region,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,protein_NA,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,DNA_molecule,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,DNA_family_or_group,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,DNA_domain_or_region,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,DNA_substructure,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,DNA_NA,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,RNA_molecule,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,RNA_family_or_group,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,RNA_domain_or_region,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,RNA_substructure,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,RNA_NA,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,cell_type,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,cell_line,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,cell_component,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,tissue,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,body_part,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,organism,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,mono_cell,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,virus,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,other_organism,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,lipid,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,carbohydrate,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,nucleotide,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,amino_acid_monomer,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,peptide,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,inorganic,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,atom,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+GENIA,document,other_name,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),GENIA ontology fine-grained class (nested annotations); distributed as a single train split.
+BioNLP13CG,document,Anatomical_system,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),BioNLP Shared Task 2013 Cancer Genetics; event extraction (40 event types) + coreference. Entities are not linked to external IDs.
+BioNLP13CG,document,Cancer,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Cell,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Cellular_component,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Developing_anatomical_structure,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Gene_or_gene_product,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Immaterial_anatomical_entity,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Multi-tissue_structure,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Organ,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Organism,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Organism_subdivision,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Organism_substance,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Pathological_formation,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Simple_chemical,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Tissue,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Amino_acid,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,Anatomical_entity,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+BioNLP13CG,document,DNA_domain_or_region,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+CRAFT,document,CHEBI,yes,ChEBI,no,,60,7,30,bigbio/craft (craft_bigbio_kb),Each class is an ontology; mentions carry that ontology's concept IDs. Splits are full-text article counts (dev=validation).
+CRAFT,document,CL,yes,Cell Ontology (CL),no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,GO_BP,yes,Gene Ontology - Biological Process,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,GO_CC,yes,Gene Ontology - Cellular Component,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,GO_MF,yes,Gene Ontology - Molecular Function,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,MONDO,yes,MONDO Disease Ontology,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,MOP,yes,Molecular Process Ontology (MOP),no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,NCBITaxon,yes,NCBI Taxonomy,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,PR,yes,Protein Ontology (PR),no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,SO,yes,Sequence Ontology (SO),no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+CRAFT,document,UBERON,yes,UBERON,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+ChemProt,document,CHEMICAL,no,,yes,CPR:1; CPR:2; CPR:3; CPR:4; CPR:5; CPR:6; CPR:7; CPR:8; CPR:9; CPR:10,1020,612,800,bigbio/chemprot (chemprot_bigbio_kb),"Splits are PubMed abstract counts. Shared-task evaluation uses CPR groups 3,4,5,6,9."
+ChemProt,document,GENE-Y,no,,yes,CPR:1; CPR:2; CPR:3; CPR:4; CPR:5; CPR:6; CPR:7; CPR:8; CPR:9; CPR:10,1020,612,800,bigbio/chemprot (chemprot_bigbio_kb),Gene/protein normalizable in the original annotation.
+ChemProt,document,GENE-N,no,,yes,CPR:1; CPR:2; CPR:3; CPR:4; CPR:5; CPR:6; CPR:7; CPR:8; CPR:9; CPR:10,1020,612,800,bigbio/chemprot (chemprot_bigbio_kb),Gene/protein not normalizable in the original annotation.
+Linnaeus,document,Species,yes,NCBI Taxonomy,no,,100,,,bigbio/linnaeus,"100 full-text PMC articles (2,988 species annotations); distributed as a single set with no official split."
+Species-800,sentence,Species,yes,NCBI Taxonomy,no,,560,80,160,spyysalo/species_800,Also known as S800. 800 PubMed abstracts; split counts are document (abstract) counts from the official split files.
+BioID,sentence (token-as-entity),Gene,yes,NCBI Gene,no,,13573,,4310,bigbio/bioid,BioCreative VI Bio-ID track; units are figure-panel captions. No official validation split.
+BioID,sentence (token-as-entity),Protein,yes,Uniprot; Corum,no,,13573,,4310,bigbio/bioid,Protein complexes normalized to Corum.
+BioID,sentence (token-as-entity),miRNA,yes,Rfam,no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Cellular component,yes,GO,no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Cell type,yes,CL (Cell Ontology),no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Cell line,yes,Cellosaurus,no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Tissue/Organ,yes,Uberon,no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Organism/Species,yes,NCBI Taxonomy,no,,13573,,4310,bigbio/bioid,
+BioID,sentence (token-as-entity),Small molecule/Chemical,yes,ChEBI; PubChem,no,,13573,,4310,bigbio/bioid,
+NLM-Chem,document,Chemical,yes,MeSH,no,,80,20,50,bigbio/nlmchem,"150 full-text PMC articles, 80/20/50 split; chemical mentions normalized to MeSH."
+NLM-Gene,document,Gene,yes,NCBI Gene,no,,450,,100,bigbio/nlm_gene,"550 PubMed articles (multi-species), 450/100 split; no official validation split."
+GNormPlus,document,Gene,yes,NCBI Gene,no,,432,,262,bigbio/gnormplus,Gene mentions normalized to NCBI (Entrez) Gene. Train = BC2GNtrain (281) + NLMIAT (151); test = BC2GNtest (262).
+GNormPlus,document,FamilyName,no,,no,,432,,262,bigbio/gnormplus,Gene family annotations; not normalized to NCBI Gene.
+GNormPlus,document,DomainMotif,no,,no,,432,,262,bigbio/gnormplus,Protein domain/motif annotations; not normalized.
+tmVar (v3),document,DNAMutation,yes,dbSNP; tmVar; ClinGen Allele Registry,no,,,,500,bigbio/tmvar_v3,500 PubMed articles; no official train/dev split (loader exposes a single test split).
+tmVar (v3),document,ProteinMutation,yes,dbSNP; tmVar; ClinGen Allele Registry,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,SNP,yes,dbSNP,no,,,,500,bigbio/tmvar_v3,rs identifiers.
+tmVar (v3),document,DNAAllele,yes,tmVar; ClinGen Allele Registry,no,,,,500,bigbio/tmvar_v3,Allele/CNV recognition new in tmVar 3.0.
+tmVar (v3),document,ProteinAllele,yes,tmVar; ClinGen Allele Registry,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,AcidChange,yes,tmVar,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,OtherMutation,yes,tmVar,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,CopyNumberVariant,yes,tmVar,no,,,,500,bigbio/tmvar_v3,New variant class in tmVar 3.0.
+tmVar (v3),document,Gene,yes,NCBI Gene,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,Species,yes,NCBI Taxonomy,no,,,,500,bigbio/tmvar_v3,
+tmVar (v3),document,CellLine,no,,no,,,,500,bigbio/tmvar_v3,
+SCAI Chemical,document,IUPAC,no,,no,,100,,,bigbio/scai_chemical,"100 MEDLINE abstracts; single set, no official split."
+SCAI Chemical,document,TRIVIAL,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Chemical,document,TRIVIALVAR,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Chemical,document,PARTIUPAC,no,,no,,100,,,bigbio/scai_chemical,Partial IUPAC name.
+SCAI Chemical,document,FAMILY,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Chemical,document,ABBREVIATION,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Chemical,document,MODIFIER,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Chemical,document,SUM,no,,no,,100,,,bigbio/scai_chemical,Sum-formula type (original SCAI tagset).
+SCAI Disease,document,DISEASE,no,,no,,400,,,bigbio/scai_disease,"400 MEDLINE abstracts; single set, no official split or concept normalization."
+SCAI Disease,document,ADVERSE,no,,no,,400,,,bigbio/scai_disease,Adverse-effect mentions.
+DiMB-RE,document,Food,yes,FoodOn; MeSH; NCI Thesaurus; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,Diet-microbiome relation corpus; splits are document counts from the official release. Not on Hugging Face.
+DiMB-RE,document,Nutrient,yes,MeSH; ChEBI; NCI Thesaurus; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,DietPattern,yes,MeSH; NCI Thesaurus; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Microorganism,yes,NCBI Taxonomy,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,DiversityMetric,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Metabolite,yes,ChEBI; MeSH,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Physiology,yes,MeSH; NCI Thesaurus; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Disease,yes,MeSH; NCI Thesaurus; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Measurement,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Enzyme,yes,NCBI Gene,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Gene,yes,NCBI Gene,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Chemical,yes,ChEBI; MeSH,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Methodology,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,Part of the full 15-type schema; absent from the reduced NER split files.
+DiMB-RE,document,Population,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+DiMB-RE,document,Biospecimen,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
