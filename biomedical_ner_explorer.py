@@ -1,5 +1,5 @@
 """
-Biomedical NER/NEN Tool Explorer
+Biomedical NER/NEN Explorer
 Interactive visualization of entity coverage, training corpora, and ID outputs
 
 Usage:
@@ -200,12 +200,12 @@ def build_ner_graph(filtered_df: pd.DataFrame):
 
 # Page config
 st.set_page_config(
-    page_title="Biomedical NER Tool Explorer",
+    page_title="Biomedical NER/NEN Explorer",
     page_icon="🧬",
     layout="wide"
 )
 
-st.title("🧬 Biomedical NER/NEN Tool Explorer")
+st.title("🧬 Biomedical NER/NEN Explorer🧬")
 st.markdown("**Interactive exploration of entity coverage, training corpora, and ID outputs**")
 
 st.markdown(
