@@ -154,3 +154,99 @@ DiMB-RE,document,Chemical,yes,ChEBI; MeSH,yes,affects; improves; worsens; associ
 DiMB-RE,document,Methodology,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,Part of the full 15-type schema; absent from the reduced NER split files.
 DiMB-RE,document,Population,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
 DiMB-RE,document,Biospecimen,no,,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+i2b2 2010,document,problem,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+i2b2 2010,document,test,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+i2b2 2010,document,treatment,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+2010 i2b2/VA,document,problem,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+2010 i2b2/VA,document,test,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+2010 i2b2/VA,document,treatment,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,
+i2b2 2009 medication challenge,document,medication,no,,no,,,,,,
+i2b2 2009 medication challenge,document,dosage,no,,no,,,,,,
+i2b2 2009 medication challenge,document,mode,no,,no,,,,,,
+i2b2 2009 medication challenge,document,frequency,no,,no,,,,,,
+i2b2 2009 medication challenge,document,duration,no,,no,,,,,,
+i2b2 2009 medication challenge,document,reason,no,,no,,,,,,
+i2b2 2009/2010,document,—,no,,no,,,,,,Restricted (n2c2/DUA): Combined use of the i2b2 2009 medication and 2010 concept challenges. Access via n2c2 DUA.
+SemEval 2014,document,Disorder,yes,UMLS (SNOMED CT),no,,,,,,
+MIMIC-III clinical notes,document,—,no,,no,,,,,,"Text source (restricted): De-identified ICU clinical notes (PhysioNet, credentialed access). A text source for pretraining/annotation, not a fixed NER benchmark."
+UTNotes,document,—,no,,no,,,,,,Text source (restricted): UTHealth clinical notes used for clinical NER fine-tuning; institutional/restricted access.
+Mayo clinical corpus,document,—,no,,no,,,,,,Text source (restricted): Mayo Clinic clinical text (e.g. used to develop cTAKES/MedTagger). Proprietary/restricted.
+Stanford radiology reports,document,—,no,,no,,,,,,Text source (restricted): Stanford institutional radiology reports; restricted access.
+MTSamples,document,—,no,,no,,,,,,"Text source (public, unannotated): MTSamples public sample medical transcriptions. Free text without a gold NER annotation schema."
+BC4CHEMD + BC5CDR,document,SYSTEMATIC,no,,no,,,,,,From BC4CHEMD. CHEMDNER mention class (IUPAC-style systematic name). Many setups collapse all 7 classes to one CHEMICAL label.
+BC4CHEMD + BC5CDR,document,TRIVIAL,no,,no,,,,,,From BC4CHEMD. Trivial/common name.
+BC4CHEMD + BC5CDR,document,FORMULA,no,,no,,,,,,From BC4CHEMD. Molecular formula.
+BC4CHEMD + BC5CDR,document,ABBREVIATION,no,,no,,,,,,From BC4CHEMD. Abbreviation/acronym.
+BC4CHEMD + BC5CDR,document,FAMILY,no,,no,,,,,,From BC4CHEMD. Chemical family/class.
+BC4CHEMD + BC5CDR,document,MULTIPLE,no,,no,,,,,,From BC4CHEMD. Non-contiguous/multiple-name mention.
+BC4CHEMD + BC5CDR,document,IDENTIFIER,no,,no,,,,,,"From BC4CHEMD. Database/registry identifier string (mention-type label, not a DB link)."
+BC4CHEMD + BC5CDR,document,Chemical,yes,MeSH,no,,,,,,From BC5CDR.
+BC4CHEMD + BC5CDR,document,Disease,yes,MeSH,no,,,,,,From BC5CDR.
+BC4CHEMD + tmChem corpus,document,SYSTEMATIC,no,,no,,,,,,From BC4CHEMD. CHEMDNER mention class (IUPAC-style systematic name). Many setups collapse all 7 classes to one CHEMICAL label.
+BC4CHEMD + tmChem corpus,document,TRIVIAL,no,,no,,,,,,From BC4CHEMD. Trivial/common name.
+BC4CHEMD + tmChem corpus,document,FORMULA,no,,no,,,,,,From BC4CHEMD. Molecular formula.
+BC4CHEMD + tmChem corpus,document,ABBREVIATION,no,,no,,,,,,From BC4CHEMD. Abbreviation/acronym.
+BC4CHEMD + tmChem corpus,document,FAMILY,no,,no,,,,,,From BC4CHEMD. Chemical family/class.
+BC4CHEMD + tmChem corpus,document,MULTIPLE,no,,no,,,,,,From BC4CHEMD. Non-contiguous/multiple-name mention.
+BC4CHEMD + tmChem corpus,document,IDENTIFIER,no,,no,,,,,,"From BC4CHEMD. Database/registry identifier string (mention-type label, not a DB link)."
+BC5CDR + i2b2,document,Chemical,yes,MeSH,no,,,,,,From BC5CDR.
+BC5CDR + i2b2,document,Disease,yes,MeSH,no,,,,,,From BC5CDR.
+BC5CDR + i2b2,document,problem,no,,no,,,,,,From i2b2 2010.
+BC5CDR + i2b2,document,test,no,,no,,,,,,From i2b2 2010.
+BC5CDR + i2b2,document,treatment,no,,no,,,,,,From i2b2 2010.
+CRAFT + clinical extensions,document,CHEBI,yes,ChEBI,no,,,,,,From CRAFT. Each class is an ontology; mentions carry that ontology's concept IDs. Splits are full-text article counts (dev=validation).
+CRAFT + clinical extensions,document,CL,yes,Cell Ontology (CL),no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,GO_BP,yes,Gene Ontology - Biological Process,no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,GO_CC,yes,Gene Ontology - Cellular Component,no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,GO_MF,yes,Gene Ontology - Molecular Function,no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,MONDO,yes,MONDO Disease Ontology,no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,MOP,yes,Molecular Process Ontology (MOP),no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,NCBITaxon,yes,NCBI Taxonomy,no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,PR,yes,Protein Ontology (PR),no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,SO,yes,Sequence Ontology (SO),no,,,,,,From CRAFT.
+CRAFT + clinical extensions,document,UBERON,yes,UBERON,no,,,,,,From CRAFT.
+i2b2 + MIMIC-III,document,problem,no,,no,,,,,,From i2b2 2010.
+i2b2 + MIMIC-III,document,test,no,,no,,,,,,From i2b2 2010.
+i2b2 + MIMIC-III,document,treatment,no,,no,,,,,,From i2b2 2010.
+i2b2 + MTSamples,document,problem,no,,no,,,,,,From i2b2 2010.
+i2b2 + MTSamples,document,test,no,,no,,,,,,From i2b2 2010.
+i2b2 + MTSamples,document,treatment,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MIMIC-III,document,problem,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MIMIC-III,document,test,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MIMIC-III,document,treatment,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MTSamples,document,problem,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MTSamples,document,test,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + MTSamples,document,treatment,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + UTNotes,document,problem,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + UTNotes,document,test,no,,no,,,,,,From i2b2 2010.
+i2b2 2010 + UTNotes,document,treatment,no,,no,,,,,,From i2b2 2010.
+Mayo clinical corpus + i2b2 2009,document,medication,no,,no,,,,,,From i2b2 2009 medication challenge.
+Mayo clinical corpus + i2b2 2009,document,dosage,no,,no,,,,,,From i2b2 2009 medication challenge.
+Mayo clinical corpus + i2b2 2009,document,mode,no,,no,,,,,,From i2b2 2009 medication challenge.
+Mayo clinical corpus + i2b2 2009,document,frequency,no,,no,,,,,,From i2b2 2009 medication challenge.
+Mayo clinical corpus + i2b2 2009,document,duration,no,,no,,,,,,From i2b2 2009 medication challenge.
+Mayo clinical corpus + i2b2 2009,document,reason,no,,no,,,,,,From i2b2 2009 medication challenge.
+Biodiversity literature,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry literature,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry papers,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome literature corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome-specific corpus (1410 articles),,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Clinical procedure corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+JSL clinical corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Lab-focused fine-tuning corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Organism corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Taxonomic corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+CTD-Anatomy corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+GutBrainIE corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Dictionary only,,—,no,,no,,,,,,Method/resource: Dictionary lookup only; not a training corpus.
+User-defined corpus,,—,no,,no,,,,,,Placeholder: User-supplied data; varies per deployment.
+Multiple biomedical corpora,,—,no,,no,,,,,,Placeholder: Unspecified mix of biomedical corpora.
+Multiple RE corpora,,—,no,,no,,,,,,Placeholder: Unspecified mix of relation-extraction corpora.
+Platform-specific corpus,,—,no,,no,,,,,,Placeholder: Vendor/platform-specific data; not publicly specified.
+Proprietary clinical corpus,,—,no,,no,,,,,,Text source (restricted): Proprietary clinical data; not public.
+Self-supervised on MIMIC-III,,—,no,,no,,,,,,Method/resource: Self-supervised pretraining on MIMIC-III notes; not a labelled NER corpus.
+Symbolic NLP + UMLS dictionary,,—,no,,no,,,,,,Method/resource: Rule-based NLP with a UMLS dictionary; not a training corpus.
+UMLS Metathesaurus,,—,no,,no,,,,,,"Knowledge base: UMLS Metathesaurus terminology; a vocabulary, not an NER corpus."
+MEDIC dictionary,,—,no,,no,,,,,,"Knowledge base: CTD MEDIC disease vocabulary; a dictionary, not an NER corpus."
+GLiNER corpus,,—,no,,no,,,,,,Method/resource: GLiNER model training data (general/synthetic NER); not a biomedical benchmark.
+BioCreative,,—,no,,no,,,,,,"Challenge series: BioCreative is a shared-task series; see specific corpora (BC2GM, BC4CHEMD, BC5CDR, BioID)."

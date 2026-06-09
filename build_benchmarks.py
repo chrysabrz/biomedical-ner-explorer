@@ -12,7 +12,7 @@ import pandas as pd
 WIDE_COLS = [
     "corpus", "granularity", "entity_types", "num_entity_types",
     "has_normalization", "normalization_dbs", "has_relations", "relation_types",
-    "train_rows", "validation_rows", "test_rows", "hf_dataset",
+    "train_rows", "validation_rows", "test_rows", "hf_dataset", "notes",
 ]
 LONG_COLS = [
     "corpus", "granularity", "entity_type", "is_normalized", "normalization_dbs",
@@ -307,20 +307,171 @@ corpus(
 )
 
 
+# ---- Corpora referenced by tools but not public single benchmarks ----------
+# Added for completeness so every corpus mentioned in the tools data appears in
+# the Benchmark Corpora tab. These are restricted-access sets, free-text
+# combinations, or methods/resources rather than downloadable annotated corpora,
+# so split sizes / HF ids / full schemas are intentionally left blank (not faked).
+# The `note` explains what each is; `kind` is prefixed to the note for clarity.
+
+def extra(name, kind, note, granularity="", ents=None, has_norm="no", norm_dbs=None,
+          has_rel="no", rel_types=None, train="", val="", test="", hf=""):
+    norm_dbs = norm_dbs or []
+    rel_types = rel_types or []
+    ents = ents or []
+    entity_types = [e[0] for e in ents]
+    corpus(
+        dict(corpus=name, granularity=granularity, entity_types=entity_types,
+             has_normalization=has_norm, normalization_dbs=norm_dbs,
+             has_relations=has_rel, relation_types=rel_types,
+             train=train, val=val, test=test, hf=hf, note=f"{kind}: {note}"),
+        ents,
+    )
+
+
+# Restricted-access clinical NER corpora (gated by DUA / credentialing) with
+# well-established annotation schemas.
+_i2b2_2010_ents = [("problem", "no", [], ""), ("test", "no", [], ""), ("treatment", "no", [], "")]
+extra("i2b2 2010", "Restricted (n2c2/DUA)",
+      "2010 i2b2/VA Concept-Assertion-Relation challenge over clinical records. "
+      "Access via the n2c2 Data Use Agreement; official split sizes are gated.",
+      granularity="document", ents=_i2b2_2010_ents, has_rel="yes",
+      rel_types=["TrIP", "TrWP", "TrCP", "TrAP", "TrNAP", "TeRP", "TeCP", "PIP"])
+extra("2010 i2b2/VA", "Restricted (n2c2/DUA)",
+      "Same challenge as i2b2 2010 (Concept-Assertion-Relation). Access via n2c2 DUA.",
+      granularity="document", ents=_i2b2_2010_ents, has_rel="yes",
+      rel_types=["TrIP", "TrWP", "TrCP", "TrAP", "TrNAP", "TeRP", "TeCP", "PIP"])
+extra("i2b2 2009 medication challenge", "Restricted (n2c2/DUA)",
+      "i2b2 2009 medication extraction challenge over discharge summaries. Access via n2c2 DUA.",
+      granularity="document",
+      ents=[("medication", "no", [], ""), ("dosage", "no", [], ""), ("mode", "no", [], ""),
+            ("frequency", "no", [], ""), ("duration", "no", [], ""), ("reason", "no", [], "")])
+extra("i2b2 2009/2010", "Restricted (n2c2/DUA)",
+      "Combined use of the i2b2 2009 medication and 2010 concept challenges. Access via n2c2 DUA.",
+      granularity="document")
+extra("SemEval 2014", "Restricted (ShARe/CLEF)",
+      "SemEval-2014 Task 7 (Analysis of Clinical Text): disorder mention recognition with "
+      "UMLS CUI normalization, over the ShARe/CLEF eHealth clinical notes. Access is restricted.",
+      granularity="document", ents=[("Disorder", "yes", ["UMLS (SNOMED CT)"], "")],
+      has_norm="yes", norm_dbs=["UMLS (SNOMED CT)"])
+
+# Restricted / institutional clinical TEXT SOURCES (not fixed-schema NER benchmarks).
+extra("MIMIC-III clinical notes", "Text source (restricted)",
+      "De-identified ICU clinical notes (PhysioNet, credentialed access). A text source for "
+      "pretraining/annotation, not a fixed NER benchmark.", granularity="document")
+extra("UTNotes", "Text source (restricted)",
+      "UTHealth clinical notes used for clinical NER fine-tuning; institutional/restricted access.",
+      granularity="document")
+extra("Mayo clinical corpus", "Text source (restricted)",
+      "Mayo Clinic clinical text (e.g. used to develop cTAKES/MedTagger). Proprietary/restricted.",
+      granularity="document")
+extra("Stanford radiology reports", "Text source (restricted)",
+      "Stanford institutional radiology reports; restricted access.", granularity="document")
+extra("MTSamples", "Text source (public, unannotated)",
+      "MTSamples public sample medical transcriptions. Free text without a gold NER annotation schema.",
+      granularity="document")
+
+# Free-text COMBINATIONS of corpora (as written in the tools data).
+# Each combination is populated with the UNION of its component corpora's entity
+# schema (entity types + normalization), so the Benchmark Corpora tab shows the
+# real combined schema instead of an empty (0-entity) row. Components that are
+# pure text sources (MIMIC-III, MTSamples, UTNotes) contribute no schema; the
+# `parts` string still names them for context.
+_BY_NAME = {c["wide"]["corpus"]: c for c in CORPORA}
+
+# combo name -> (schema-bearing component corpora, human-readable mix description)
+_COMBOS = [
+    ("BC4CHEMD + BC5CDR", ["BC4CHEMD", "BC5CDR"], "BC4CHEMD and BC5CDR"),
+    ("BC4CHEMD + tmChem corpus", ["BC4CHEMD"], "BC4CHEMD and the tmChem chemical corpus"),
+    ("BC5CDR + i2b2", ["BC5CDR", "i2b2 2010"], "BC5CDR and an i2b2 clinical set"),
+    ("CRAFT + clinical extensions", ["CRAFT"], "CRAFT plus additional clinical annotations"),
+    ("i2b2 + MIMIC-III", ["i2b2 2010"], "i2b2 clinical data and MIMIC-III notes"),
+    ("i2b2 + MTSamples", ["i2b2 2010"], "i2b2 clinical data and MTSamples"),
+    ("i2b2 2010 + MIMIC-III", ["i2b2 2010"], "i2b2 2010 and MIMIC-III notes"),
+    ("i2b2 2010 + MTSamples", ["i2b2 2010"], "i2b2 2010 and MTSamples"),
+    ("i2b2 2010 + UTNotes", ["i2b2 2010"], "i2b2 2010 and UTNotes"),
+    ("Mayo clinical corpus + i2b2 2009", ["i2b2 2009 medication challenge"],
+     "the Mayo clinical corpus and i2b2 2009"),
+]
+
+for combo, components, parts in _COMBOS:
+    present = [p for p in components if p in _BY_NAME]
+    seen: set = set()
+    union_ents: list = []
+    norm_dbs: list = []
+    any_norm = False
+    for comp in present:
+        cw = _BY_NAME[comp]["wide"]
+        if cw["has_normalization"] == "yes":
+            any_norm = True
+        for db in cw["normalization_dbs"]:
+            if db not in norm_dbs:
+                norm_dbs.append(db)
+        for ent, is_norm, dbs, ent_note in _BY_NAME[comp]["ents"]:
+            if ent in seen or ent == "—":
+                continue
+            seen.add(ent)
+            tag = f"From {comp}." + (f" {ent_note}" if ent_note else "")
+            union_ents.append((ent, is_norm, dbs, tag))
+    note = (f"Combination: Training mix of {parts}. "
+            + (f"Entity schema = union of {', '.join(present)}."
+               if present else "Components are text sources without a public NER schema."))
+    if not union_ents:
+        extra(combo, "Combination", f"Training mix of {parts}; see those corpora's individual entries.",
+              granularity="document")
+        continue
+    corpus(
+        dict(corpus=combo, granularity="document", entity_types=[e[0] for e in union_ents],
+             has_normalization="yes" if any_norm else "no", normalization_dbs=norm_dbs,
+             has_relations="no", relation_types=[], train="", val="", test="", hf="", note=note),
+        union_ents,
+    )
+
+# Domain literature / unspecified collections.
+for name in ["Biodiversity literature", "Chemistry literature", "Chemistry papers",
+             "Microbiome literature corpus", "Microbiome-specific corpus (1410 articles)",
+             "Clinical procedure corpus", "JSL clinical corpus", "Lab-focused fine-tuning corpus",
+             "Organism corpus", "Taxonomic corpus", "CTD-Anatomy corpus", "GutBrainIE corpus"]:
+    extra(name, "Domain text (unspecified)",
+          "Domain-specific text/annotations referenced by a tool; no published single-corpus "
+          "schema or split available.")
+
+# Methods, dictionaries, knowledge bases, and placeholders (not annotated corpora).
+extra("Dictionary only", "Method/resource", "Dictionary lookup only; not a training corpus.")
+extra("User-defined corpus", "Placeholder", "User-supplied data; varies per deployment.")
+extra("Multiple biomedical corpora", "Placeholder", "Unspecified mix of biomedical corpora.")
+extra("Multiple RE corpora", "Placeholder", "Unspecified mix of relation-extraction corpora.")
+extra("Platform-specific corpus", "Placeholder", "Vendor/platform-specific data; not publicly specified.")
+extra("Proprietary clinical corpus", "Text source (restricted)", "Proprietary clinical data; not public.")
+extra("Self-supervised on MIMIC-III", "Method/resource",
+      "Self-supervised pretraining on MIMIC-III notes; not a labelled NER corpus.")
+extra("Symbolic NLP + UMLS dictionary", "Method/resource",
+      "Rule-based NLP with a UMLS dictionary; not a training corpus.")
+extra("UMLS Metathesaurus", "Knowledge base", "UMLS Metathesaurus terminology; a vocabulary, not an NER corpus.")
+extra("MEDIC dictionary", "Knowledge base", "CTD MEDIC disease vocabulary; a dictionary, not an NER corpus.")
+extra("GLiNER corpus", "Method/resource", "GLiNER model training data (general/synthetic NER); not a biomedical benchmark.")
+extra("BioCreative", "Challenge series", "BioCreative is a shared-task series; see specific corpora (BC2GM, BC4CHEMD, BC5CDR, BioID).")
+
+
 # ---- Emit ------------------------------------------------------------------
 wide_rows, long_rows = [], []
 for c in CORPORA:
     w = c["wide"]
+    note = w.get("note", "")
     wide_rows.append({
         "corpus": w["corpus"], "granularity": w["granularity"],
         "entity_types": join(w["entity_types"]), "num_entity_types": len(w["entity_types"]),
         "has_normalization": w["has_normalization"], "normalization_dbs": join(w["normalization_dbs"]),
         "has_relations": w["has_relations"], "relation_types": join(w["relation_types"]),
         "train_rows": w["train"], "validation_rows": w["val"], "test_rows": w["test"],
-        "hf_dataset": w["hf"],
+        "hf_dataset": w["hf"], "notes": note,
     })
     rel_long = join(w["relation_types"]) if w["has_relations"] == "yes" else ""
-    for ent, is_norm, norm_dbs, notes in c["ents"]:
+    ents = c["ents"]
+    if not ents:
+        # No entity schema (combination / text source / method): emit one explanatory row.
+        ents = [("—", "no", [], note)]
+    for ent, is_norm, norm_dbs, notes in ents:
         long_rows.append({
             "corpus": w["corpus"], "granularity": w["granularity"], "entity_type": ent,
             "is_normalized": is_norm, "normalization_dbs": join(norm_dbs),

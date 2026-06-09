@@ -13,8 +13,8 @@ BERN2,DMIS-Lab,2022,NER+NEN,Species/Organism,Species,Linnaeus,Rule-based diction
 BERN2,DMIS-Lab,2022,NER+NEN,Variant/Mutation,Mutation / Variant,tmVar 2.0 corpus,"tmVar 2.0 (CRF, rule-based)",dbSNP rs ID,https://github.com/dmis-lab/BERN2,
 BERN2,DMIS-Lab,2022,NER+NEN,Cell line,Cell line,JNLPBA,Cellosaurus dictionary,Cellosaurus CVCL,https://github.com/dmis-lab/BERN2,
 BERN2,DMIS-Lab,2022,NER+NEN,Cell type,Cell type,JNLPBA,Cell Ontology dictionary,Cell Ontology CL:,https://github.com/dmis-lab/BERN2,Unique cell type class
-BERN2,DMIS-Lab,2022,NER+NEN,DNA,DNA,JNLPBA,None,Span only,https://github.com/dmis-lab/BERN2,
-BERN2,DMIS-Lab,2022,NER+NEN,RNA,RNA,JNLPBA,None,Span only,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,DNA,DNA,JNLPBA,,Span only,https://github.com/dmis-lab/BERN2,
+BERN2,DMIS-Lab,2022,NER+NEN,RNA,RNA,JNLPBA,,Span only,https://github.com/dmis-lab/BERN2,
 HunFlair2,Humboldt-Universität,2024,NER+NEN,Gene/Protein,Gene / Protein,"NLM-Gene, GNormPlus, BioRED","BioSyn (pretrained, BC2GN)",NCBI Gene ID (human only),https://github.com/flairNLP/flair,Best cross-corpus generalization
 HunFlair2,Humboldt-Universität,2024,NER+NEN,Disease,Disease,"NCBI Disease, SCAI Disease, BioRED","BioSyn (pretrained, BC5CDR disease)",CTD Diseases (MEDIC),https://github.com/flairNLP/flair,
 HunFlair2,Humboldt-Universität,2024,NER+NEN,Chemical/Drug,Chemical,"NLM-Chem, SCAI Chemical, BioRED","BioSyn (pretrained, BC5CDR chemical)",CTD Chemicals,https://github.com/flairNLP/flair,
@@ -34,7 +34,7 @@ SciSpacy,AllenAI,2019,NER+NEN,Anatomy,Anatomy (16 subtypes),"BioNLP13CG, CRAFT",
 SciSpacy,AllenAI,2019,NER+NEN,Species/Organism,Organism,"CRAFT, BioNLP13CG",NCBI Taxonomy linker,NCBI TaxID,https://aclanthology.org/W19-5034/,
 SciSpacy,AllenAI,2019,NER+NEN,Cell line,Cell / Cell line,JNLPBA,UMLS linker,UMLS CUI,https://aclanthology.org/W19-5034/,
 SciSpacy,AllenAI,2019,NER+NEN,Phenotype,Phenotype,"BC5CDR, NCBI Disease",HPO linker,HP: term (HPO),https://aclanthology.org/W19-5034/,Only tool with direct HPO linking
-SciSpacy,AllenAI,2019,NER+NEN,DNA/RNA,DNA / RNA,JNLPBA,None,Span only,https://aclanthology.org/W19-5034/,
+SciSpacy,AllenAI,2019,NER+NEN,DNA/RNA,DNA / RNA,JNLPBA,,Span only,https://aclanthology.org/W19-5034/,
 BENT,LASIGE,2023,NER+NEN,Gene/Protein,Gene / Protein,BC2GM,NILINKER + SapBERT (NCBI Gene KB),NCBI Gene ID,https://github.com/lasigeBioTM/bent,NILINKER handles NIL entities
 BENT,LASIGE,2023,NER+NEN,Gene/Protein,Gene / Protein,BC2GM,NILINKER + SapBERT (CTD-Genes KB),CTD Gene ID,https://github.com/lasigeBioTM/bent,
 BENT,LASIGE,2023,NER+NEN,Disease,Disease,"BC5CDR, MEDIC dictionary",NILINKER + SapBERT (MEDIC KB),MeSH ID / OMIM,https://github.com/lasigeBioTM/bent,
@@ -47,34 +47,34 @@ BENT,LASIGE,2023,NER+NEN,Anatomy,Anatomy,CTD-Anatomy corpus,NILINKER (CTD-Anatom
 BENT,LASIGE,2023,NER+NEN,Biological process,Biological process,CRAFT,NILINKER (Gene Ontology BP),GO: term,https://github.com/lasigeBioTM/bent,
 BENT,LASIGE,2023,NER+NEN,Molecular function,Molecular function,CRAFT,NILINKER (Gene Ontology MF),GO: term,https://github.com/lasigeBioTM/bent,
 BENT,LASIGE,2023,NER+NEN,Cellular component,Cellular component,CRAFT,NILINKER (Gene Ontology CC),GO: term,https://github.com/lasigeBioTM/bent,
-BioBERT,DMIS-Lab,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, BC5CDR, JNLPBA",None,Span only,https://github.com/dmis-lab/biobert,Foundation model for biomedical NLP
-BioBERT,DMIS-Lab,2019,NER only,Disease,Disease,"BC5CDR, NCBI Disease",None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,Species/Organism,Species,Species-800,None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,DNA,DNA,JNLPBA,None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,RNA,RNA,JNLPBA,None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,Cell line,Cell line,JNLPBA,None,Span only,https://github.com/dmis-lab/biobert,
-BioBERT,DMIS-Lab,2019,NER only,Cell type,Cell type,JNLPBA,None,Span only,https://github.com/dmis-lab/biobert,
-PubMedBERT,Microsoft,2020,NER only,Gene/Protein,Gene / Protein,"BC2GM, BC5CDR, JNLPBA",None,Span only,https://github.com/ncbi/BERT_variants,Only abstracts training
-PubMedBERT,Microsoft,2020,NER only,Disease,Disease,"BC5CDR, NCBI Disease",None,Span only,https://github.com/ncbi/BERT_variants,
-PubMedBERT,Microsoft,2020,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",None,Span only,https://github.com/ncbi/BERT_variants,
-PubMedBERT,Microsoft,2020,NER only,Species/Organism,Species,Species-800,None,Span only,https://github.com/ncbi/BERT_variants,
-SciBERT,AllenAI,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",None,Span only,https://github.com/allenai/scibert,Trained on scientific papers
-SciBERT,AllenAI,2019,NER only,Disease,Disease,BC5CDR,None,Span only,https://github.com/allenai/scibert,
-SciBERT,AllenAI,2019,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",None,Span only,https://github.com/allenai/scibert,
-BlueBERT,NCBI,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",None,Span only,https://github.com/ncbi/BlueBERT,PubMed + MIMIC-III training
-BlueBERT,NCBI,2019,NER only,Disease,Disease,BC5CDR + i2b2,None,Span only,https://github.com/ncbi/BlueBERT,
-BlueBERT,NCBI,2019,NER only,Chemical/Drug,Chemical,BC4CHEMD + BC5CDR,None,Span only,https://github.com/ncbi/BlueBERT,
-ClinicalBERT,MIT,2019,NER only,Disease,Disease,i2b2 2010 + MIMIC-III,None,Span only,https://github.com/kexinhuang12345/clinicalBERT,Clinical notes training
-ClinicalBERT,MIT,2019,NER only,Procedure,Procedure,i2b2 2010,None,Span only,https://github.com/kexinhuang12345/clinicalBERT,
-ClinicalBERT,MIT,2019,NER only,Lab test,Lab test,i2b2 2010,None,Span only,https://github.com/kexinhuang12345/clinicalBERT,
-BioLinkBERT,DMIS-Lab,2022,NER only,Gene/Protein,Gene / Protein,"BC2GM, BioRED",None,Span only,https://github.com/michiyasunaga/LinkBERT,Document linking during pretraining
-BioLinkBERT,DMIS-Lab,2022,NER only,Disease,Disease,"BC5CDR, BioRED",None,Span only,https://github.com/michiyasunaga/LinkBERT,
-BioLinkBERT,DMIS-Lab,2022,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BioRED",None,Span only,https://github.com/michiyasunaga/LinkBERT,
-BioLinkBERT,DMIS-Lab,2022,NER only,Relations,Relations,BioRED,None,Span only,https://github.com/michiyasunaga/LinkBERT,
-BioELECTRA,DMIS-Lab,2021,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",None,Span only,https://github.com/dmis-lab/biobert,ELECTRA architecture for biomedical
-BioELECTRA,DMIS-Lab,2021,NER only,Disease,Disease,BC5CDR,None,Span only,https://github.com/dmis-lab/biobert,
-BioELECTRA,DMIS-Lab,2021,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",None,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, BC5CDR, JNLPBA",,Span only,https://github.com/dmis-lab/biobert,Foundation model for biomedical NLP
+BioBERT,DMIS-Lab,2019,NER only,Disease,Disease,"BC5CDR, NCBI Disease",,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,Species/Organism,Species,Species-800,,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,DNA,DNA,JNLPBA,,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,RNA,RNA,JNLPBA,,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,Cell line,Cell line,JNLPBA,,Span only,https://github.com/dmis-lab/biobert,
+BioBERT,DMIS-Lab,2019,NER only,Cell type,Cell type,JNLPBA,,Span only,https://github.com/dmis-lab/biobert,
+PubMedBERT,Microsoft,2020,NER only,Gene/Protein,Gene / Protein,"BC2GM, BC5CDR, JNLPBA",,Span only,https://github.com/ncbi/BERT_variants,Only abstracts training
+PubMedBERT,Microsoft,2020,NER only,Disease,Disease,"BC5CDR, NCBI Disease",,Span only,https://github.com/ncbi/BERT_variants,
+PubMedBERT,Microsoft,2020,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",,Span only,https://github.com/ncbi/BERT_variants,
+PubMedBERT,Microsoft,2020,NER only,Species/Organism,Species,Species-800,,Span only,https://github.com/ncbi/BERT_variants,
+SciBERT,AllenAI,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",,Span only,https://github.com/allenai/scibert,Trained on scientific papers
+SciBERT,AllenAI,2019,NER only,Disease,Disease,BC5CDR,,Span only,https://github.com/allenai/scibert,
+SciBERT,AllenAI,2019,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",,Span only,https://github.com/allenai/scibert,
+BlueBERT,NCBI,2019,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",,Span only,https://github.com/ncbi/BlueBERT,PubMed + MIMIC-III training
+BlueBERT,NCBI,2019,NER only,Disease,Disease,BC5CDR + i2b2,,Span only,https://github.com/ncbi/BlueBERT,
+BlueBERT,NCBI,2019,NER only,Chemical/Drug,Chemical,BC4CHEMD + BC5CDR,,Span only,https://github.com/ncbi/BlueBERT,
+ClinicalBERT,MIT,2019,NER only,Disease,Disease,i2b2 2010 + MIMIC-III,,Span only,https://github.com/kexinhuang12345/clinicalBERT,Clinical notes training
+ClinicalBERT,MIT,2019,NER only,Procedure,Procedure,i2b2 2010,,Span only,https://github.com/kexinhuang12345/clinicalBERT,
+ClinicalBERT,MIT,2019,NER only,Lab test,Lab test,i2b2 2010,,Span only,https://github.com/kexinhuang12345/clinicalBERT,
+BioLinkBERT,DMIS-Lab,2022,NER only,Gene/Protein,Gene / Protein,"BC2GM, BioRED",,Span only,https://github.com/michiyasunaga/LinkBERT,Document linking during pretraining
+BioLinkBERT,DMIS-Lab,2022,NER only,Disease,Disease,"BC5CDR, BioRED",,Span only,https://github.com/michiyasunaga/LinkBERT,
+BioLinkBERT,DMIS-Lab,2022,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BioRED",,Span only,https://github.com/michiyasunaga/LinkBERT,
+BioLinkBERT,DMIS-Lab,2022,NER only,Relations,Relations,BioRED,,Span only,https://github.com/michiyasunaga/LinkBERT,
+BioELECTRA,DMIS-Lab,2021,NER only,Gene/Protein,Gene / Protein,"BC2GM, JNLPBA",,Span only,https://github.com/dmis-lab/biobert,ELECTRA architecture for biomedical
+BioELECTRA,DMIS-Lab,2021,NER only,Disease,Disease,BC5CDR,,Span only,https://github.com/dmis-lab/biobert,
+BioELECTRA,DMIS-Lab,2021,NER only,Chemical/Drug,Chemical,"BC4CHEMD, BC5CDR",,Span only,https://github.com/dmis-lab/biobert,
 GNormPlus,NCBI,2015,NER+NEN,Gene/Protein,Gene / Protein,"BC2GM, BioCreative",GNorm algorithm,NCBI Gene ID,https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/gnormplus/,Gene normalization focus
 DNorm,NCBI,2013,NER+NEN,Disease,Disease,NCBI Disease corpus,TF-IDF vector similarity,OMIM / MeSH,https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/DNorm/,Disease normalization pioneer
 TaggerOne,NCBI,2016,NER+NEN,Disease,Disease,"NCBI Disease, BC5CDR",Semi-Markov model,OMIM / MeSH,https://www.ncbi.nlm.nih.gov/research/bionlp/Tools/taggerone/,Joint NER+NEN
@@ -99,43 +99,43 @@ QuickUMLS,Fondazione Bruno Kessler,2016,NER+NEN,Procedure,Medical entities,UMLS 
 LinkBERT,DMIS-Lab,2022,NER+RE,Relations,Relations,Multiple biomedical corpora,Document linking,Relation triplets,https://github.com/michiyasunaga/LinkBERT,Document-level relation extraction
 ChemProt,BioCreative,2017,NER+RE,Relations,Chemical-Protein interactions,ChemProt corpus,Deep learning,ChemProt relations,https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vi/,Chemical-protein relation extraction
 BioRE,Multiple,2020,NER+RE,Relations,Biomedical relations,Multiple RE corpora,Transformer-based,Relation triplets,Multiple repositories,General biomedical RE
-Stanza-anatem,Stanford,2020,NER only,Anatomy,Anatomy,AnatEM,None,Span only,https://stanfordnlp.github.io/stanza/,BiLSTM-CRF + character-level LM
-Stanza-bc2gm,Stanford,2020,NER only,Gene/Protein,Gene / Protein,BC2GM,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bc4chemd,Stanford,2020,NER only,Chemical/Drug,Chemical / Drug,BC4CHEMD,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bc5cdr,Stanford,2020,NER only,Chemical/Drug,Chemical,BC5CDR,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bc5cdr,Stanford,2020,NER only,Disease,Disease,BC5CDR,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Gene/Protein,Gene / Gene product,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Amino acid,Amino acid,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Cancer,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Pathological formation,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Cell type,Cell,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Cellular component,Cellular component,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organ,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Tissue,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism substance,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Anatomical system,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism subdivision,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Multi-tissue structure,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Developing anatomical structure,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Immaterial anatomical entity,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Species/Organism,Organism,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-bionlp13cg,Stanford,2020,NER only,Chemical/Drug,Simple chemical,BioNLP13CG,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-jnlpba,Stanford,2020,NER only,Gene/Protein,Protein,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-jnlpba,Stanford,2020,NER only,DNA,DNA,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-jnlpba,Stanford,2020,NER only,RNA,RNA,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-jnlpba,Stanford,2020,NER only,Cell type,Cell type,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-jnlpba,Stanford,2020,NER only,Cell line,Cell line,JNLPBA (GENIA),None,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-anatem,Stanford,2020,NER only,Anatomy,Anatomy,AnatEM,,Span only,https://stanfordnlp.github.io/stanza/,BiLSTM-CRF + character-level LM
+Stanza-bc2gm,Stanford,2020,NER only,Gene/Protein,Gene / Protein,BC2GM,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc4chemd,Stanford,2020,NER only,Chemical/Drug,Chemical / Drug,BC4CHEMD,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc5cdr,Stanford,2020,NER only,Chemical/Drug,Chemical,BC5CDR,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bc5cdr,Stanford,2020,NER only,Disease,Disease,BC5CDR,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Gene/Protein,Gene / Gene product,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Amino acid,Amino acid,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Cancer,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Disease,Pathological formation,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Cell type,Cell,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Cellular component,Cellular component,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organ,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Tissue,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism substance,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Anatomical system,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Organism subdivision,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Multi-tissue structure,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Developing anatomical structure,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Anatomy,Immaterial anatomical entity,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Species/Organism,Organism,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-bionlp13cg,Stanford,2020,NER only,Chemical/Drug,Simple chemical,BioNLP13CG,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Gene/Protein,Protein,JNLPBA (GENIA),,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,DNA,DNA,JNLPBA (GENIA),,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,RNA,RNA,JNLPBA (GENIA),,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Cell type,Cell type,JNLPBA (GENIA),,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-jnlpba,Stanford,2020,NER only,Cell line,Cell line,JNLPBA (GENIA),,Span only,https://stanfordnlp.github.io/stanza/,
 Stanza-linnaeus,Stanford,2020,NER+NEN,Species/Organism,Species / Organism,Linnaeus (100 full-text articles),NCBI Taxonomy dictionary,NCBI TaxID,https://stanfordnlp.github.io/stanza/,
 Stanza-ncbi_disease,Stanford,2020,NER+NEN,Disease,Disease,NCBI Disease (793 abstracts),Dictionary + rule-based,MeSH ID / OMIM ID,https://stanfordnlp.github.io/stanza/,
 Stanza-s800,Stanford,2020,NER+NEN,Species/Organism,Species / Organism,Species-800 (800 abstracts),NCBI Taxonomy dictionary,NCBI TaxID,https://stanfordnlp.github.io/stanza/,
-Stanza-i2b2,Stanford,2020,NER only,Disease,Problem / Disease,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,Clinical model
-Stanza-i2b2,Stanford,2020,NER only,Lab test,Test / Lab,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-i2b2,Stanford,2020,NER only,Procedure,Treatment / Procedure,2010 i2b2/VA,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-radiology,Stanford,2020,NER only,Lab test,Observation / Finding,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy modifier,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-radiology,Stanford,2020,NER only,Observation modifier,Observation modifier,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,
-Stanza-radiology,Stanford,2020,NER only,Uncertainty,Uncertainty,Stanford radiology reports,None,Span only,https://stanfordnlp.github.io/stanza/,Unique: Uncertainty as entity type
+Stanza-i2b2,Stanford,2020,NER only,Disease,Problem / Disease,2010 i2b2/VA,,Span only,https://stanfordnlp.github.io/stanza/,Clinical model
+Stanza-i2b2,Stanford,2020,NER only,Lab test,Test / Lab,2010 i2b2/VA,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-i2b2,Stanford,2020,NER only,Procedure,Treatment / Procedure,2010 i2b2/VA,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy,Stanford radiology reports,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Lab test,Observation / Finding,Stanford radiology reports,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Anatomy,Anatomy modifier,Stanford radiology reports,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Observation modifier,Observation modifier,Stanford radiology reports,,Span only,https://stanfordnlp.github.io/stanza/,
+Stanza-radiology,Stanford,2020,NER only,Uncertainty,Uncertainty,Stanford radiology reports,,Span only,https://stanfordnlp.github.io/stanza/,Unique: Uncertainty as entity type
 cTAKES,Apache/Mayo,2010+,NER+NEN,Chemical/Drug,Drug / Medication,Mayo clinical corpus + i2b2 2009,RxNorm index (Lucene),UMLS CUI + RxNorm RxCUI,https://github.com/apache/ctakes,80M+ notes processed at Mayo
 cTAKES,Apache/Mayo,2010+,NER+NEN,Disease,Disease / Disorder,Mayo clinical corpus + i2b2 2009,UMLS dictionary (SNOMED-CT subset),UMLS CUI,https://github.com/apache/ctakes,
 cTAKES,Apache/Mayo,2010+,NER+NEN,Sign/Symptom,Sign / Symptom,Mayo clinical corpus + i2b2 2009,UMLS dictionary (SNOMED-CT subset),UMLS CUI,https://github.com/apache/ctakes,NegEx negation + THYME temporality
@@ -183,14 +183,32 @@ MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome habitats,Skin microbiome,Micr
 SparkNLP-JSL,John Snow Labs,2022,NER+NEN,Lab test,Test (laboratory pathology radiological),JSL clinical corpus,Healthcare NLP ontologies,LOINC / SNOMED-CT,https://nlp.johnsnowlabs.com/,ner_jsl comprehensive clinical model
 SparkNLP-measurements,John Snow Labs,2022,NER+NEN,Lab test,Lab results with values and units,JSL clinical corpus,Healthcare NLP ontologies,LOINC codes,https://nlp.johnsnowlabs.com/,ner_measurements specialized for lab values
 SparkNLP-JSL,John Snow Labs,2022,NER+NEN,Procedure,Medical procedures and interventions,JSL clinical corpus,Healthcare NLP ontologies,CPT / SNOMED-CT,https://nlp.johnsnowlabs.com/,Clinical procedure identification
-Med7,SpaCy Community,2019,NER only,Lab test,Tests and measurements,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,Specialized clinical NER for spaCy
-Med7,SpaCy Community,2019,NER only,Procedure,Medical procedures,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,Clinical interventions and processes
-Med7,SpaCy Community,2019,NER only,Chemical/Drug,Medications and dosages,MIMIC-III clinical notes,None,Span only,https://github.com/kormilitzin/med7,MIMIC-III trained clinical model
-PubMedBERT-labs,Microsoft,2020,NER only,Lab test,Laboratory results and findings,Lab-focused fine-tuning corpus,None,Span only,https://github.com/ncbi/BERT_variants,Fine-tuned for lab result extraction
-ClinicalBERT-procedures,MIT,2019,NER only,Procedure,Clinical procedures and treatments,i2b2 + MIMIC-III,None,Span only,https://github.com/kexinhuang12345/clinicalBERT,Procedure-focused fine-tuning
+Med7,SpaCy Community,2019,NER only,Lab test,Tests and measurements,MIMIC-III clinical notes,,Span only,https://github.com/kormilitzin/med7,Specialized clinical NER for spaCy
+Med7,SpaCy Community,2019,NER only,Procedure,Medical procedures,MIMIC-III clinical notes,,Span only,https://github.com/kormilitzin/med7,Clinical interventions and processes
+Med7,SpaCy Community,2019,NER only,Chemical/Drug,Medications and dosages,MIMIC-III clinical notes,,Span only,https://github.com/kormilitzin/med7,MIMIC-III trained clinical model
+PubMedBERT-labs,Microsoft,2020,NER only,Lab test,Laboratory results and findings,Lab-focused fine-tuning corpus,,Span only,https://github.com/ncbi/BERT_variants,Fine-tuned for lab result extraction
+ClinicalBERT-procedures,MIT,2019,NER only,Procedure,Clinical procedures and treatments,i2b2 + MIMIC-III,,Span only,https://github.com/kexinhuang12345/clinicalBERT,Procedure-focused fine-tuning
 Amazon-Comprehend-Medical,Amazon,2018+,NER+NEN,Lab test,Tests Treatments Procedures,Proprietary clinical corpus,AWS medical ontologies,LOINC / CPT codes,https://aws.amazon.com/comprehend/medical/,Cloud-based medical NER service
 Amazon-Comprehend-Medical,Amazon,2018+,NER+NEN,Procedure,Medical procedures,Proprietary clinical corpus,AWS medical ontologies,CPT / ICD-10-PCS,https://aws.amazon.com/comprehend/medical/,Large-scale EHR processing
 Google-Healthcare-API,Google,2019+,NER+NEN,Lab test,Medical observations and tests,Proprietary clinical corpus,Google medical ontologies,LOINC codes,https://cloud.google.com/healthcare-api,Cloud-based healthcare NLP
 Google-Healthcare-API,Google,2019+,NER+NEN,Procedure,Medical procedures and interventions,Proprietary clinical corpus,Google medical ontologies,CPT / SNOMED-CT,https://cloud.google.com/healthcare-api,Healthcare API procedure extraction
 TaxoNERD-procedures,Research Lab,2025,NER+NEN,Procedure,Medical procedure mentions,Clinical procedure corpus,Procedure taxonomy,Custom procedure IDs,Research paper,Adapted for procedure extraction
 SciSpacy-procedures,AllenAI,2019,NER+NEN,Procedure,Clinical procedures,CRAFT + clinical extensions,UMLS procedure linker,UMLS CUI (procedure),https://aclanthology.org/W19-5034/,Procedure-adapted SciSpacy model
+d4data,d4data (HuggingFace),2022,NER,Diagnostic Procedure,Diagnostic_procedure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"DistilBERT token classifier (84 labels / 43 entity groups) trained on MACCROBAT case reports. Matched medical annotator for the medical-AI-security literature (compare_annotators.py) - covers the clinical tests, procedures, labs and demographics that form the medical attack surface. Span-only (no normalization)."
+d4data,d4data (HuggingFace),2022,NER,Therapeutic Procedure,Therapeutic_procedure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"Treatments, surgeries and clinical procedures."
+d4data,d4data (HuggingFace),2022,NER,Lab Test / Value,Lab_value,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,Laboratory tests and their measured values.
+d4data,d4data (HuggingFace),2022,NER,Medication / Drug,Medication,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Disease / Disorder,Disease_disorder,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Sign / Symptom,Sign_symptom,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Anatomical Structure,Biological_structure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Biological Attribute,Biological_attribute,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Clinical Event,Clinical_event,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"Admissions, diagnoses and interventions as discrete events."
+d4data,d4data (HuggingFace),2022,NER,Patient Demographics,Age,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,Population/demographic descriptor.
+d4data,d4data (HuggingFace),2022,NER,Patient Demographics,Sex,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,Population/demographic descriptor.
+d4data,d4data (HuggingFace),2022,NER,Medical History,History,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Family History,Family_history,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Severity,Severity,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Dosage,Dosage,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Frequency,Frequency,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Duration,Duration,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+medspaCy,medspaCy team,2020+,NER+NEN,Custom,User-defined (TargetRule categories),,QuickUMLS (optional),"UMLS CUI (optional, via QuickUMLS)",https://github.com/medspacy/medspacy,"Rule-based clinical NLP pipeline on spaCy: ConText (negation/uncertainty/experiencer), section detection, and rule-based target matching. Entities are user-defined via rules - no fixed inventory. Optional UMLS CUI linking via QuickUMLS. AMIA 2021."

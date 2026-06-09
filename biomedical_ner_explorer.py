@@ -327,15 +327,6 @@ def prepare_df(df: pd.DataFrame) -> pd.DataFrame:
         lambda r: canonicalize_entity_type(r["Tool"], r["Entity type"]),
         axis=1,
     )
-    biomedical_tools = {
-        "PubTator3", "BERN2", "HunFlair2", "AIONER", "SciSpacy", "bent",
-        "Stanza-anatem", "Stanza-bc2gm", "Stanza-bc4chemd",
-        "Stanza-bc5cdr", "Stanza-bionlp13cg", "Stanza-jnlpba",
-        "Stanza-linnaeus", "Stanza-ncbi_disease", "Stanza-s800",
-    }
-    df["Section"] = df["Tool"].apply(
-        lambda x: "Biomedical" if x in biomedical_tools else "Clinical"
-    )
     return df
 
 
@@ -371,13 +362,6 @@ if df is not None:
 
     # Sidebar filters
     st.sidebar.header("Filters")
-
-    sections = st.sidebar.multiselect(
-        "Domain (biomedical vs clinical)",
-        options=["Biomedical", "Clinical"],
-        default=["Biomedical", "Clinical"],
-        help="Filter by tool category, not by individual product names.",
-    )
 
     tool_names = sorted(df["Tool"].dropna().unique(), key=str.lower)
     selected_tools = st.sidebar.multiselect(
@@ -416,8 +400,7 @@ if df is not None:
     )
 
     base_mask = (
-        df["Section"].isin(sections)
-        & df["Tool"].isin(selected_tools)
+        df["Tool"].isin(selected_tools)
         & df["Entity type"].isin(selected_entities)
         & df["Task"].isin(selected_tasks)
     )
@@ -683,9 +666,11 @@ if df is not None:
     with tab_corpora:
         st.header("Benchmark Corpora")
         st.markdown(
-            "Annotated biomedical corpora used to train and evaluate NER/NEN tools. "
-            "Five corpora, 18 distinct entity types, sourced via Hugging Face "
-            "(`bigbio` and `spyysalo`)."
+            "Every corpus referenced by the tools in this explorer. Public benchmark corpora "
+            "(via Hugging Face `bigbio`/`spyysalo`) carry full metadata — entity types, "
+            "normalization DBs, relations, and split sizes. Restricted clinical sets, "
+            "free-text combinations, and methods/dictionaries are included for completeness "
+            "with an explanatory note and blank fields where no verified data exists."
         )
 
         bench_wide_path = SCRIPT_DIR / "benchmark_summary.csv"
@@ -717,7 +702,10 @@ if df is not None:
                 row = bench_wide[bench_wide["corpus"] == pick_corpus].iloc[0]
                 sub = bench_long[bench_long["corpus"] == pick_corpus].copy()
 
-                ents = [e.strip() for e in str(row["entity_types"]).split(";") if e.strip()]
+                ents = (
+                    [e.strip() for e in str(row["entity_types"]).split(";") if e.strip()]
+                    if pd.notna(row["entity_types"]) else []
+                )
                 rels = (
                     [r.strip() for r in str(row["relation_types"]).split(";") if r.strip()]
                     if pd.notna(row["relation_types"]) else []
@@ -726,6 +714,10 @@ if df is not None:
                     [n.strip() for n in str(row["normalization_dbs"]).split(";") if n.strip()]
                     if pd.notna(row["normalization_dbs"]) else []
                 )
+
+                note = str(row["notes"]).strip() if "notes" in row and pd.notna(row["notes"]) else ""
+                if note:
+                    st.info(note)
 
                 st.subheader(f"All entity rows for {pick_corpus}")
                 display_cols = [
@@ -758,13 +750,15 @@ if df is not None:
                 with m1:
                     st.metric("Entity types", int(row["num_entity_types"]))
                 with m2:
-                    st.metric("Granularity", str(row["granularity"]))
+                    gran = str(row["granularity"]) if pd.notna(row["granularity"]) else "—"
+                    st.metric("Granularity", gran)
                 with m3:
                     st.metric("Normalized", "Yes" if str(row["has_normalization"]) == "yes" else "No")
                 with m4:
                     st.metric("Relations", f"{len(rels)} types" if rels else "None")
 
-                st.markdown(f"**Hugging Face:** `{row['hf_dataset']}`")
+                if pd.notna(row["hf_dataset"]) and str(row["hf_dataset"]).strip():
+                    st.markdown(f"**Hugging Face:** `{row['hf_dataset']}`")
 
                 agg_left, agg_right = st.columns(2)
                 with agg_left:

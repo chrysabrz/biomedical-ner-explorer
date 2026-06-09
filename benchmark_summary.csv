@@ -1,22 +1,66 @@
-corpus,granularity,entity_types,num_entity_types,has_normalization,normalization_dbs,has_relations,relation_types,train_rows,validation_rows,test_rows,hf_dataset
-BC5CDR,document,Chemical; Disease,2,yes,MeSH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb)
-BC2GM,sentence,GENE,1,no,,no,,12500,2500,5000,spyysalo/bc2gm_corpus
-NCBI Disease,document,SpecificDisease; DiseaseClass; CompositeMention; Modifier,4,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb)
-BioRED,document,GeneOrGeneProduct; DiseaseOrPhenotypicFeature; ChemicalEntity; OrganismTaxon; SequenceVariant; CellLine,6,yes,NCBIGene; MeSH; OMIM; NCBITaxon; dbSNP; Cellosaurus,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb)
-JNLPBA,sentence (token-as-entity),DNA; RNA; protein; cell_line; cell_type,5,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb)
-AnatEM,document,Organism subdivision; Anatomical system; Organ; Multi-tissue structure; Tissue; Cell; Developing anatomical structure; Cellular component; Organism substance; Immaterial anatomical entity; Pathological formation; Cancer,12,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb)
-BC4CHEMD,document,SYSTEMATIC; TRIVIAL; FORMULA; ABBREVIATION; FAMILY; MULTIPLE; IDENTIFIER,7,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb)
-GENIA,document,protein_molecule; protein_family_or_group; protein_complex; protein_subunit; protein_substructure; protein_domain_or_region; protein_NA; DNA_molecule; DNA_family_or_group; DNA_domain_or_region; DNA_substructure; DNA_NA; RNA_molecule; RNA_family_or_group; RNA_domain_or_region; RNA_substructure; RNA_NA; cell_type; cell_line; cell_component; tissue; body_part; organism; mono_cell; virus; other_organism; lipid; carbohydrate; nucleotide; amino_acid_monomer; peptide; inorganic; atom; other_name,34,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb)
-BioNLP13CG,document,Anatomical_system; Cancer; Cell; Cellular_component; Developing_anatomical_structure; Gene_or_gene_product; Immaterial_anatomical_entity; Multi-tissue_structure; Organ; Organism; Organism_subdivision; Organism_substance; Pathological_formation; Simple_chemical; Tissue; Amino_acid; Anatomical_entity; DNA_domain_or_region,18,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb)
-CRAFT,document,CHEBI; CL; GO_BP; GO_CC; GO_MF; MONDO; MOP; NCBITaxon; PR; SO; UBERON,11,yes,ChEBI; Cell Ontology (CL); Gene Ontology (GO); MONDO; Molecular Process Ontology (MOP); NCBI Taxonomy; Protein Ontology (PR); Sequence Ontology (SO); UBERON,no,,60,7,30,bigbio/craft (craft_bigbio_kb)
-ChemProt,document,CHEMICAL; GENE-Y; GENE-N,3,no,,yes,CPR:1; CPR:2; CPR:3; CPR:4; CPR:5; CPR:6; CPR:7; CPR:8; CPR:9; CPR:10,1020,612,800,bigbio/chemprot (chemprot_bigbio_kb)
-Linnaeus,document,Species,1,yes,NCBI Taxonomy,no,,100,,,bigbio/linnaeus
-Species-800,sentence,Species,1,yes,NCBI Taxonomy,no,,560,80,160,spyysalo/species_800
-BioID,sentence (token-as-entity),Gene; Protein; miRNA; Cellular component; Cell type; Cell line; Tissue/Organ; Organism/Species; Small molecule/Chemical,9,yes,NCBI Gene; Uniprot; Rfam; GO; CL; Cellosaurus; Uberon; NCBI Taxonomy; ChEBI; PubChem; Corum,no,,13573,,4310,bigbio/bioid
-NLM-Chem,document,Chemical,1,yes,MeSH,no,,80,20,50,bigbio/nlmchem
-NLM-Gene,document,Gene,1,yes,NCBI Gene,no,,450,,100,bigbio/nlm_gene
-GNormPlus,document,Gene; FamilyName; DomainMotif,3,yes,NCBI Gene,no,,432,,262,bigbio/gnormplus
-tmVar (v3),document,DNAMutation; ProteinMutation; SNP; DNAAllele; ProteinAllele; AcidChange; OtherMutation; CopyNumberVariant; Gene; Species; CellLine,11,yes,dbSNP; tmVar; ClinGen Allele Registry; NCBI Gene; NCBI Taxonomy,no,,,,500,bigbio/tmvar_v3
-SCAI Chemical,document,IUPAC; TRIVIAL; TRIVIALVAR; PARTIUPAC; FAMILY; ABBREVIATION; MODIFIER; SUM,8,no,,no,,100,,,bigbio/scai_chemical
-SCAI Disease,document,DISEASE; ADVERSE,2,no,,no,,400,,,bigbio/scai_disease
-DiMB-RE,document,Food; Nutrient; DietPattern; Microorganism; DiversityMetric; Metabolite; Physiology; Disease; Measurement; Enzyme; Gene; Chemical; Methodology; Population; Biospecimen,15,yes,FoodOn; MeSH; NCI Thesaurus; ChEBI; NCBI Taxonomy; NCBI Gene; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,
+corpus,granularity,entity_types,num_entity_types,has_normalization,normalization_dbs,has_relations,relation_types,train_rows,validation_rows,test_rows,hf_dataset,notes
+BC5CDR,document,Chemical; Disease,2,yes,MeSH,yes,CID (chemical induces disease),500,500,500,bigbio/bc5cdr (bc5cdr_bigbio_kb),
+BC2GM,sentence,GENE,1,no,,no,,12500,2500,5000,spyysalo/bc2gm_corpus,
+NCBI Disease,document,SpecificDisease; DiseaseClass; CompositeMention; Modifier,4,yes,MeSH; OMIM,no,,592,100,100,bigbio/ncbi_disease (ncbi_disease_bigbio_kb),
+BioRED,document,GeneOrGeneProduct; DiseaseOrPhenotypicFeature; ChemicalEntity; OrganismTaxon; SequenceVariant; CellLine,6,yes,NCBIGene; MeSH; OMIM; NCBITaxon; dbSNP; Cellosaurus,yes,Association; Positive_Correlation; Negative_Correlation; Bind; Cotreatment; Comparison; Drug_Interaction; Conversion,400,100,100,bigbio/biored (biored_bigbio_kb),
+JNLPBA,sentence (token-as-entity),DNA; RNA; protein; cell_line; cell_type,5,no,,no,,18546,3856,,bigbio/jnlpba (jnlpba_bigbio_kb),
+AnatEM,document,Organism subdivision; Anatomical system; Organ; Multi-tissue structure; Tissue; Cell; Developing anatomical structure; Cellular component; Organism substance; Immaterial anatomical entity; Pathological formation; Cancer,12,no,,no,,606,202,404,bigbio/anat_em (anat_em_bigbio_kb),
+BC4CHEMD,document,SYSTEMATIC; TRIVIAL; FORMULA; ABBREVIATION; FAMILY; MULTIPLE; IDENTIFIER,7,no,,no,,3500,3500,3000,bigbio/chemdner (chemdner_bigbio_kb),
+GENIA,document,protein_molecule; protein_family_or_group; protein_complex; protein_subunit; protein_substructure; protein_domain_or_region; protein_NA; DNA_molecule; DNA_family_or_group; DNA_domain_or_region; DNA_substructure; DNA_NA; RNA_molecule; RNA_family_or_group; RNA_domain_or_region; RNA_substructure; RNA_NA; cell_type; cell_line; cell_component; tissue; body_part; organism; mono_cell; virus; other_organism; lipid; carbohydrate; nucleotide; amino_acid_monomer; peptide; inorganic; atom; other_name,34,no,,no,,1999,,,bigbio/genia_term_corpus (genia_term_corpus_bigbio_kb),
+BioNLP13CG,document,Anatomical_system; Cancer; Cell; Cellular_component; Developing_anatomical_structure; Gene_or_gene_product; Immaterial_anatomical_entity; Multi-tissue_structure; Organ; Organism; Organism_subdivision; Organism_substance; Pathological_formation; Simple_chemical; Tissue; Amino_acid; Anatomical_entity; DNA_domain_or_region,18,no,,yes,Development; Growth; Cell proliferation; Cell death; Carcinogenesis; Metastasis; Mutation; Gene expression; Transcription; Translation; Phosphorylation; Binding; Localization; Regulation; Positive regulation; Negative regulation; Planned process,300,100,200,bigbio/bionlp_st_2013_cg (bionlp_st_2013_cg_bigbio_kb),
+CRAFT,document,CHEBI; CL; GO_BP; GO_CC; GO_MF; MONDO; MOP; NCBITaxon; PR; SO; UBERON,11,yes,ChEBI; Cell Ontology (CL); Gene Ontology (GO); MONDO; Molecular Process Ontology (MOP); NCBI Taxonomy; Protein Ontology (PR); Sequence Ontology (SO); UBERON,no,,60,7,30,bigbio/craft (craft_bigbio_kb),
+ChemProt,document,CHEMICAL; GENE-Y; GENE-N,3,no,,yes,CPR:1; CPR:2; CPR:3; CPR:4; CPR:5; CPR:6; CPR:7; CPR:8; CPR:9; CPR:10,1020,612,800,bigbio/chemprot (chemprot_bigbio_kb),
+Linnaeus,document,Species,1,yes,NCBI Taxonomy,no,,100,,,bigbio/linnaeus,
+Species-800,sentence,Species,1,yes,NCBI Taxonomy,no,,560,80,160,spyysalo/species_800,
+BioID,sentence (token-as-entity),Gene; Protein; miRNA; Cellular component; Cell type; Cell line; Tissue/Organ; Organism/Species; Small molecule/Chemical,9,yes,NCBI Gene; Uniprot; Rfam; GO; CL; Cellosaurus; Uberon; NCBI Taxonomy; ChEBI; PubChem; Corum,no,,13573,,4310,bigbio/bioid,
+NLM-Chem,document,Chemical,1,yes,MeSH,no,,80,20,50,bigbio/nlmchem,
+NLM-Gene,document,Gene,1,yes,NCBI Gene,no,,450,,100,bigbio/nlm_gene,
+GNormPlus,document,Gene; FamilyName; DomainMotif,3,yes,NCBI Gene,no,,432,,262,bigbio/gnormplus,
+tmVar (v3),document,DNAMutation; ProteinMutation; SNP; DNAAllele; ProteinAllele; AcidChange; OtherMutation; CopyNumberVariant; Gene; Species; CellLine,11,yes,dbSNP; tmVar; ClinGen Allele Registry; NCBI Gene; NCBI Taxonomy,no,,,,500,bigbio/tmvar_v3,
+SCAI Chemical,document,IUPAC; TRIVIAL; TRIVIALVAR; PARTIUPAC; FAMILY; ABBREVIATION; MODIFIER; SUM,8,no,,no,,100,,,bigbio/scai_chemical,
+SCAI Disease,document,DISEASE; ADVERSE,2,no,,no,,400,,,bigbio/scai_disease,
+DiMB-RE,document,Food; Nutrient; DietPattern; Microorganism; DiversityMetric; Metabolite; Physiology; Disease; Measurement; Enzyme; Gene; Chemical; Methodology; Population; Biospecimen,15,yes,FoodOn; MeSH; NCI Thesaurus; ChEBI; NCBI Taxonomy; NCBI Gene; OCHV,yes,affects; improves; worsens; associated_with; pos_associated_with; neg_associated_with; interacts_with; increases; decreases; causes; prevents; predisposes; has_component,109,19,37,,
+i2b2 2010,document,problem; test; treatment,3,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,Restricted (n2c2/DUA): 2010 i2b2/VA Concept-Assertion-Relation challenge over clinical records. Access via the n2c2 Data Use Agreement; official split sizes are gated.
+2010 i2b2/VA,document,problem; test; treatment,3,no,,yes,TrIP; TrWP; TrCP; TrAP; TrNAP; TeRP; TeCP; PIP,,,,,Restricted (n2c2/DUA): Same challenge as i2b2 2010 (Concept-Assertion-Relation). Access via n2c2 DUA.
+i2b2 2009 medication challenge,document,medication; dosage; mode; frequency; duration; reason,6,no,,no,,,,,,Restricted (n2c2/DUA): i2b2 2009 medication extraction challenge over discharge summaries. Access via n2c2 DUA.
+i2b2 2009/2010,document,,0,no,,no,,,,,,Restricted (n2c2/DUA): Combined use of the i2b2 2009 medication and 2010 concept challenges. Access via n2c2 DUA.
+SemEval 2014,document,Disorder,1,yes,UMLS (SNOMED CT),no,,,,,,"Restricted (ShARe/CLEF): SemEval-2014 Task 7 (Analysis of Clinical Text): disorder mention recognition with UMLS CUI normalization, over the ShARe/CLEF eHealth clinical notes. Access is restricted."
+MIMIC-III clinical notes,document,,0,no,,no,,,,,,"Text source (restricted): De-identified ICU clinical notes (PhysioNet, credentialed access). A text source for pretraining/annotation, not a fixed NER benchmark."
+UTNotes,document,,0,no,,no,,,,,,Text source (restricted): UTHealth clinical notes used for clinical NER fine-tuning; institutional/restricted access.
+Mayo clinical corpus,document,,0,no,,no,,,,,,Text source (restricted): Mayo Clinic clinical text (e.g. used to develop cTAKES/MedTagger). Proprietary/restricted.
+Stanford radiology reports,document,,0,no,,no,,,,,,Text source (restricted): Stanford institutional radiology reports; restricted access.
+MTSamples,document,,0,no,,no,,,,,,"Text source (public, unannotated): MTSamples public sample medical transcriptions. Free text without a gold NER annotation schema."
+BC4CHEMD + BC5CDR,document,SYSTEMATIC; TRIVIAL; FORMULA; ABBREVIATION; FAMILY; MULTIPLE; IDENTIFIER; Chemical; Disease,9,yes,MeSH,no,,,,,,"Combination: Training mix of BC4CHEMD and BC5CDR. Entity schema = union of BC4CHEMD, BC5CDR."
+BC4CHEMD + tmChem corpus,document,SYSTEMATIC; TRIVIAL; FORMULA; ABBREVIATION; FAMILY; MULTIPLE; IDENTIFIER,7,no,,no,,,,,,Combination: Training mix of BC4CHEMD and the tmChem chemical corpus. Entity schema = union of BC4CHEMD.
+BC5CDR + i2b2,document,Chemical; Disease; problem; test; treatment,5,yes,MeSH,no,,,,,,"Combination: Training mix of BC5CDR and an i2b2 clinical set. Entity schema = union of BC5CDR, i2b2 2010."
+CRAFT + clinical extensions,document,CHEBI; CL; GO_BP; GO_CC; GO_MF; MONDO; MOP; NCBITaxon; PR; SO; UBERON,11,yes,ChEBI; Cell Ontology (CL); Gene Ontology (GO); MONDO; Molecular Process Ontology (MOP); NCBI Taxonomy; Protein Ontology (PR); Sequence Ontology (SO); UBERON,no,,,,,,Combination: Training mix of CRAFT plus additional clinical annotations. Entity schema = union of CRAFT.
+i2b2 + MIMIC-III,document,problem; test; treatment,3,no,,no,,,,,,Combination: Training mix of i2b2 clinical data and MIMIC-III notes. Entity schema = union of i2b2 2010.
+i2b2 + MTSamples,document,problem; test; treatment,3,no,,no,,,,,,Combination: Training mix of i2b2 clinical data and MTSamples. Entity schema = union of i2b2 2010.
+i2b2 2010 + MIMIC-III,document,problem; test; treatment,3,no,,no,,,,,,Combination: Training mix of i2b2 2010 and MIMIC-III notes. Entity schema = union of i2b2 2010.
+i2b2 2010 + MTSamples,document,problem; test; treatment,3,no,,no,,,,,,Combination: Training mix of i2b2 2010 and MTSamples. Entity schema = union of i2b2 2010.
+i2b2 2010 + UTNotes,document,problem; test; treatment,3,no,,no,,,,,,Combination: Training mix of i2b2 2010 and UTNotes. Entity schema = union of i2b2 2010.
+Mayo clinical corpus + i2b2 2009,document,medication; dosage; mode; frequency; duration; reason,6,no,,no,,,,,,Combination: Training mix of the Mayo clinical corpus and i2b2 2009. Entity schema = union of i2b2 2009 medication challenge.
+Biodiversity literature,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry literature,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry papers,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome literature corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome-specific corpus (1410 articles),,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Clinical procedure corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+JSL clinical corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Lab-focused fine-tuning corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Organism corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Taxonomic corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+CTD-Anatomy corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+GutBrainIE corpus,,,0,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Dictionary only,,,0,no,,no,,,,,,Method/resource: Dictionary lookup only; not a training corpus.
+User-defined corpus,,,0,no,,no,,,,,,Placeholder: User-supplied data; varies per deployment.
+Multiple biomedical corpora,,,0,no,,no,,,,,,Placeholder: Unspecified mix of biomedical corpora.
+Multiple RE corpora,,,0,no,,no,,,,,,Placeholder: Unspecified mix of relation-extraction corpora.
+Platform-specific corpus,,,0,no,,no,,,,,,Placeholder: Vendor/platform-specific data; not publicly specified.
+Proprietary clinical corpus,,,0,no,,no,,,,,,Text source (restricted): Proprietary clinical data; not public.
+Self-supervised on MIMIC-III,,,0,no,,no,,,,,,Method/resource: Self-supervised pretraining on MIMIC-III notes; not a labelled NER corpus.
+Symbolic NLP + UMLS dictionary,,,0,no,,no,,,,,,Method/resource: Rule-based NLP with a UMLS dictionary; not a training corpus.
+UMLS Metathesaurus,,,0,no,,no,,,,,,"Knowledge base: UMLS Metathesaurus terminology; a vocabulary, not an NER corpus."
+MEDIC dictionary,,,0,no,,no,,,,,,"Knowledge base: CTD MEDIC disease vocabulary; a dictionary, not an NER corpus."
+GLiNER corpus,,,0,no,,no,,,,,,Method/resource: GLiNER model training data (general/synthetic NER); not a biomedical benchmark.
+BioCreative,,,0,no,,no,,,,,,"Challenge series: BioCreative is a shared-task series; see specific corpora (BC2GM, BC4CHEMD, BC5CDR, BioID)."
