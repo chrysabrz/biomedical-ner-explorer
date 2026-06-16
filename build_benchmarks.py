@@ -408,7 +408,7 @@ for combo, components, parts in _COMBOS:
             if db not in norm_dbs:
                 norm_dbs.append(db)
         for ent, is_norm, dbs, ent_note in _BY_NAME[comp]["ents"]:
-            if ent in seen or ent == "—":
+            if ent in seen or ent == "-":
                 continue
             seen.add(ent)
             tag = f"From {comp}." + (f" {ent_note}" if ent_note else "")
@@ -470,7 +470,7 @@ for c in CORPORA:
     ents = c["ents"]
     if not ents:
         # No entity schema (combination / text source / method): emit one explanatory row.
-        ents = [("—", "no", [], note)]
+        ents = [("-", "no", [], note)]
     for ent, is_norm, norm_dbs, notes in ents:
         long_rows.append({
             "corpus": w["corpus"], "granularity": w["granularity"], "entity_type": ent,

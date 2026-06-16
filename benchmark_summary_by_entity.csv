@@ -166,13 +166,13 @@ i2b2 2009 medication challenge,document,mode,no,,no,,,,,,
 i2b2 2009 medication challenge,document,frequency,no,,no,,,,,,
 i2b2 2009 medication challenge,document,duration,no,,no,,,,,,
 i2b2 2009 medication challenge,document,reason,no,,no,,,,,,
-i2b2 2009/2010,document,—,no,,no,,,,,,Restricted (n2c2/DUA): Combined use of the i2b2 2009 medication and 2010 concept challenges. Access via n2c2 DUA.
+i2b2 2009/2010,document,-,no,,no,,,,,,Restricted (n2c2/DUA): Combined use of the i2b2 2009 medication and 2010 concept challenges. Access via n2c2 DUA.
 SemEval 2014,document,Disorder,yes,UMLS (SNOMED CT),no,,,,,,
-MIMIC-III clinical notes,document,—,no,,no,,,,,,"Text source (restricted): De-identified ICU clinical notes (PhysioNet, credentialed access). A text source for pretraining/annotation, not a fixed NER benchmark."
-UTNotes,document,—,no,,no,,,,,,Text source (restricted): UTHealth clinical notes used for clinical NER fine-tuning; institutional/restricted access.
-Mayo clinical corpus,document,—,no,,no,,,,,,Text source (restricted): Mayo Clinic clinical text (e.g. used to develop cTAKES/MedTagger). Proprietary/restricted.
-Stanford radiology reports,document,—,no,,no,,,,,,Text source (restricted): Stanford institutional radiology reports; restricted access.
-MTSamples,document,—,no,,no,,,,,,"Text source (public, unannotated): MTSamples public sample medical transcriptions. Free text without a gold NER annotation schema."
+MIMIC-III clinical notes,document,-,no,,no,,,,,,"Text source (restricted): De-identified ICU clinical notes (PhysioNet, credentialed access). A text source for pretraining/annotation, not a fixed NER benchmark."
+UTNotes,document,-,no,,no,,,,,,Text source (restricted): UTHealth clinical notes used for clinical NER fine-tuning; institutional/restricted access.
+Mayo clinical corpus,document,-,no,,no,,,,,,Text source (restricted): Mayo Clinic clinical text (e.g. used to develop cTAKES/MedTagger). Proprietary/restricted.
+Stanford radiology reports,document,-,no,,no,,,,,,Text source (restricted): Stanford institutional radiology reports; restricted access.
+MTSamples,document,-,no,,no,,,,,,"Text source (public, unannotated): MTSamples public sample medical transcriptions. Free text without a gold NER annotation schema."
 BC4CHEMD + BC5CDR,document,SYSTEMATIC,no,,no,,,,,,From BC4CHEMD. CHEMDNER mention class (IUPAC-style systematic name). Many setups collapse all 7 classes to one CHEMICAL label.
 BC4CHEMD + BC5CDR,document,TRIVIAL,no,,no,,,,,,From BC4CHEMD. Trivial/common name.
 BC4CHEMD + BC5CDR,document,FORMULA,no,,no,,,,,,From BC4CHEMD. Molecular formula.
@@ -226,27 +226,27 @@ Mayo clinical corpus + i2b2 2009,document,mode,no,,no,,,,,,From i2b2 2009 medica
 Mayo clinical corpus + i2b2 2009,document,frequency,no,,no,,,,,,From i2b2 2009 medication challenge.
 Mayo clinical corpus + i2b2 2009,document,duration,no,,no,,,,,,From i2b2 2009 medication challenge.
 Mayo clinical corpus + i2b2 2009,document,reason,no,,no,,,,,,From i2b2 2009 medication challenge.
-Biodiversity literature,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Chemistry literature,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Chemistry papers,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Microbiome literature corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Microbiome-specific corpus (1410 articles),,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Clinical procedure corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-JSL clinical corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Lab-focused fine-tuning corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Organism corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Taxonomic corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-CTD-Anatomy corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-GutBrainIE corpus,,—,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
-Dictionary only,,—,no,,no,,,,,,Method/resource: Dictionary lookup only; not a training corpus.
-User-defined corpus,,—,no,,no,,,,,,Placeholder: User-supplied data; varies per deployment.
-Multiple biomedical corpora,,—,no,,no,,,,,,Placeholder: Unspecified mix of biomedical corpora.
-Multiple RE corpora,,—,no,,no,,,,,,Placeholder: Unspecified mix of relation-extraction corpora.
-Platform-specific corpus,,—,no,,no,,,,,,Placeholder: Vendor/platform-specific data; not publicly specified.
-Proprietary clinical corpus,,—,no,,no,,,,,,Text source (restricted): Proprietary clinical data; not public.
-Self-supervised on MIMIC-III,,—,no,,no,,,,,,Method/resource: Self-supervised pretraining on MIMIC-III notes; not a labelled NER corpus.
-Symbolic NLP + UMLS dictionary,,—,no,,no,,,,,,Method/resource: Rule-based NLP with a UMLS dictionary; not a training corpus.
-UMLS Metathesaurus,,—,no,,no,,,,,,"Knowledge base: UMLS Metathesaurus terminology; a vocabulary, not an NER corpus."
-MEDIC dictionary,,—,no,,no,,,,,,"Knowledge base: CTD MEDIC disease vocabulary; a dictionary, not an NER corpus."
-GLiNER corpus,,—,no,,no,,,,,,Method/resource: GLiNER model training data (general/synthetic NER); not a biomedical benchmark.
-BioCreative,,—,no,,no,,,,,,"Challenge series: BioCreative is a shared-task series; see specific corpora (BC2GM, BC4CHEMD, BC5CDR, BioID)."
+Biodiversity literature,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry literature,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Chemistry papers,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome literature corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Microbiome-specific corpus (1410 articles),,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Clinical procedure corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+JSL clinical corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Lab-focused fine-tuning corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Organism corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Taxonomic corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+CTD-Anatomy corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+GutBrainIE corpus,,-,no,,no,,,,,,Domain text (unspecified): Domain-specific text/annotations referenced by a tool; no published single-corpus schema or split available.
+Dictionary only,,-,no,,no,,,,,,Method/resource: Dictionary lookup only; not a training corpus.
+User-defined corpus,,-,no,,no,,,,,,Placeholder: User-supplied data; varies per deployment.
+Multiple biomedical corpora,,-,no,,no,,,,,,Placeholder: Unspecified mix of biomedical corpora.
+Multiple RE corpora,,-,no,,no,,,,,,Placeholder: Unspecified mix of relation-extraction corpora.
+Platform-specific corpus,,-,no,,no,,,,,,Placeholder: Vendor/platform-specific data; not publicly specified.
+Proprietary clinical corpus,,-,no,,no,,,,,,Text source (restricted): Proprietary clinical data; not public.
+Self-supervised on MIMIC-III,,-,no,,no,,,,,,Method/resource: Self-supervised pretraining on MIMIC-III notes; not a labelled NER corpus.
+Symbolic NLP + UMLS dictionary,,-,no,,no,,,,,,Method/resource: Rule-based NLP with a UMLS dictionary; not a training corpus.
+UMLS Metathesaurus,,-,no,,no,,,,,,"Knowledge base: UMLS Metathesaurus terminology; a vocabulary, not an NER corpus."
+MEDIC dictionary,,-,no,,no,,,,,,"Knowledge base: CTD MEDIC disease vocabulary; a dictionary, not an NER corpus."
+GLiNER corpus,,-,no,,no,,,,,,Method/resource: GLiNER model training data (general/synthetic NER); not a biomedical benchmark.
+BioCreative,,-,no,,no,,,,,,"Challenge series: BioCreative is a shared-task series; see specific corpora (BC2GM, BC4CHEMD, BC5CDR, BioID)."

@@ -171,7 +171,21 @@ MicrobiomeNER,Research Lab,2025,NER+NEN,Species/Organism,Bacteria/Archaea/Fungi,
 TaxoNERD,Research Lab,2025,NER+NEN,Species/Organism,Taxonomic entities,Taxonomic corpus,Deep learning model,NCBI TaxID,Research paper,Handles scientific names + synonyms + abbreviations
 GLiNER-BioMed,Research Lab,2025,NER,Microbiome entities,13 categories including bacteria/microbiota,GutBrainIE corpus,Zero-shot natural language labels,Span only,arXiv paper,Gut-brain axis specialized
 MINERVA,Research Lab,2025,NER+NEN,Species/Organism,Microbes,Platform-specific corpus,Fine-tuned LLM,Microbe-Disease Association IDs,Research platform,3400+ microbes × 35000+ diseases
-DiMB-RE,Research Lab,2025,NER+NEN+RE,Diet-Microbiome entities,15 entity types + microbes,DiMB-RE corpus (diet-microbiome),Transformer-based,Custom IDs,Research paper,Diet-microbiome interactions F1=0.80
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Food,Food,DiMB-RE corpus (diet-microbiome),Transformer-based,FoodOn / MeSH / NCI Thesaurus / OCHV,Research paper,Diet-microbiome RE corpus (F1=0.80); full 15-type schema
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Nutrient,Nutrient,DiMB-RE corpus (diet-microbiome),Transformer-based,MeSH / ChEBI / NCI Thesaurus / OCHV,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,DietPattern,DietPattern,DiMB-RE corpus (diet-microbiome),Transformer-based,MeSH / NCI Thesaurus / OCHV,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Microorganism,Microorganism,DiMB-RE corpus (diet-microbiome),Transformer-based,NCBI Taxonomy,Research paper,
+DiMB-RE,Research Lab,2025,NER+RE,DiversityMetric,DiversityMetric,DiMB-RE corpus (diet-microbiome),,Span only,Research paper,Not normalized in corpus
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Metabolite,Metabolite,DiMB-RE corpus (diet-microbiome),Transformer-based,ChEBI / MeSH,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Physiology,Physiology,DiMB-RE corpus (diet-microbiome),Transformer-based,MeSH / NCI Thesaurus / OCHV,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Disease,Disease,DiMB-RE corpus (diet-microbiome),Transformer-based,MeSH / NCI Thesaurus / OCHV,Research paper,
+DiMB-RE,Research Lab,2025,NER+RE,Measurement,Measurement,DiMB-RE corpus (diet-microbiome),,Span only,Research paper,Not normalized in corpus
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Enzyme,Enzyme,DiMB-RE corpus (diet-microbiome),Transformer-based,NCBI Gene,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Gene,Gene,DiMB-RE corpus (diet-microbiome),Transformer-based,NCBI Gene,Research paper,
+DiMB-RE,Research Lab,2025,NER+NEN+RE,Chemical,Chemical,DiMB-RE corpus (diet-microbiome),Transformer-based,ChEBI / MeSH,Research paper,
+DiMB-RE,Research Lab,2025,NER+RE,Methodology,Methodology,DiMB-RE corpus (diet-microbiome),,Span only,Research paper,Not normalized in corpus
+DiMB-RE,Research Lab,2025,NER+RE,Population,Population,DiMB-RE corpus (diet-microbiome),,Span only,Research paper,Not normalized in corpus
+DiMB-RE,Research Lab,2025,NER+RE,Biospecimen,Biospecimen,DiMB-RE corpus (diet-microbiome),,Span only,Research paper,Not normalized in corpus
 MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome metabolites,SCFAs (butyrate acetate propionate),Microbiome literature corpus,MiMeDB linking,MiMeDB metabolite ID,Research system,Short-chain fatty acids recognition
 MicrobiomeNER,Research Lab,2025,NER+NEN,Microbiome metabolites,Bile acids,Microbiome literature corpus,MiMeDB linking,MiMeDB metabolite ID,Research system,Secondary bile acids (DCA LCA etc)
 MicrobiomeNER,Research Lab,2025,NER,Microbiome functions,Gut dysbiosis,Microbiome literature corpus,Custom microbiome ontology,Custom functional ID,Research system,Functional microbiome concepts
@@ -194,7 +208,7 @@ Google-Healthcare-API,Google,2019+,NER+NEN,Lab test,Medical observations and tes
 Google-Healthcare-API,Google,2019+,NER+NEN,Procedure,Medical procedures and interventions,Proprietary clinical corpus,Google medical ontologies,CPT / SNOMED-CT,https://cloud.google.com/healthcare-api,Healthcare API procedure extraction
 TaxoNERD-procedures,Research Lab,2025,NER+NEN,Procedure,Medical procedure mentions,Clinical procedure corpus,Procedure taxonomy,Custom procedure IDs,Research paper,Adapted for procedure extraction
 SciSpacy-procedures,AllenAI,2019,NER+NEN,Procedure,Clinical procedures,CRAFT + clinical extensions,UMLS procedure linker,UMLS CUI (procedure),https://aclanthology.org/W19-5034/,Procedure-adapted SciSpacy model
-d4data,d4data (HuggingFace),2022,NER,Diagnostic Procedure,Diagnostic_procedure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"DistilBERT token classifier (84 labels / 43 entity groups) trained on MACCROBAT case reports. Matched medical annotator for the medical-AI-security literature (compare_annotators.py) - covers the clinical tests, procedures, labs and demographics that form the medical attack surface. Span-only (no normalization)."
+d4data,d4data (HuggingFace),2022,NER,Diagnostic Procedure,Diagnostic_procedure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"DistilBERT token-classification model; 41 entity types, trained on MACCROBAT case reports. Matched medical annotator for the medical-AI-security literature (compare_annotators.py) - covers the clinical tests, procedures, labs and demographics that form the medical attack surface. Span-only (no normalization)."
 d4data,d4data (HuggingFace),2022,NER,Therapeutic Procedure,Therapeutic_procedure,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,"Treatments, surgeries and clinical procedures."
 d4data,d4data (HuggingFace),2022,NER,Lab Test / Value,Lab_value,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,Laboratory tests and their measured values.
 d4data,d4data (HuggingFace),2022,NER,Medication / Drug,Medication,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
@@ -212,3 +226,71 @@ d4data,d4data (HuggingFace),2022,NER,Dosage,Dosage,MACCROBAT,,Span only,https://
 d4data,d4data (HuggingFace),2022,NER,Frequency,Frequency,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
 d4data,d4data (HuggingFace),2022,NER,Duration,Duration,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
 medspaCy,medspaCy team,2020+,NER+NEN,Custom,User-defined (TargetRule categories),,QuickUMLS (optional),"UMLS CUI (optional, via QuickUMLS)",https://github.com/medspacy/medspacy,"Rule-based clinical NLP pipeline on spaCy: ConText (negation/uncertainty/experiencer), section detection, and rule-based target matching. Entities are user-defined via rules - no fixed inventory. Optional UMLS CUI linking via QuickUMLS. AMIA 2021."
+SHAC,Harvard DBMI / UW,2022,NER,Alcohol,Alcohol (substance-use event),SHAC (MIMIC-III + UW social history),,Span + status/amount attributes,https://n2c2.dbmi.hms.harvard.edu/2022-track-2,n2c2 2022 Track 2 SDOH substance-use event. SHAC: 4405 de-identified social-history sections (MIMIC-III + UW). Event-based annotation with status/extent/temporality attributes; no ontology normalization.
+SHAC,Harvard DBMI / UW,2022,NER,Drug,Drug use (substance-use event),SHAC (MIMIC-III + UW social history),,Span + status/amount attributes,https://n2c2.dbmi.hms.harvard.edu/2022-track-2,
+SHAC,Harvard DBMI / UW,2022,NER,Tobacco,Tobacco (substance-use event),SHAC (MIMIC-III + UW social history),,Span + status/amount attributes,https://n2c2.dbmi.hms.harvard.edu/2022-track-2,
+d4data,d4data (HuggingFace),2022,NER,Activity,Activity,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Administration,Administration,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Area,Area,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Color,Color,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Coreference,Coreference,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Date,Date,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Detailed Description,Detailed_description,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Distance,Distance,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Height,Height,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Mass,Mass,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Nonbiological Location,Nonbiological_location,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Occupation,Occupation,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Other Entity,Other_entity,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Other Event,Other_event,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Outcome,Outcome,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Personal Background,Personal_background,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Qualitative Concept,Qualitative_concept,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Quantitative Concept,Quantitative_concept,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Shape,Shape,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Subject,Subject,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Texture,Texture,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Time,Time,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Volume,Volume,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+d4data,d4data (HuggingFace),2022,NER,Weight,Weight,MACCROBAT,,Span only,https://huggingface.co/d4data/biomedical-ner-all,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Activity,ACTIVITY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,"DeBERTa-v3-base token classifier; 41 medical entities (same MACCROBAT-family scheme as d4data, 41 of its 43 classes). Span-only. Model card states PubMED training; Transformers 4.37 (~2024)."
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Administration,ADMINISTRATION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Patient Demographics,AGE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Area,AREA,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Biological Attribute,BIOLOGICAL_ATTRIBUTE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Anatomical Structure,BIOLOGICAL_STRUCTURE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Clinical Event,CLINICAL_EVENT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Color,COLOR,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Coreference,COREFERENCE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Date,DATE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Detailed Description,DETAILED_DESCRIPTION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Diagnostic Procedure,DIAGNOSTIC_PROCEDURE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Disease / Disorder,DISEASE_DISORDER,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Distance,DISTANCE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Dosage,DOSAGE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Duration,DURATION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Family History,FAMILY_HISTORY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Frequency,FREQUENCY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Height,HEIGHT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Medical History,HISTORY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Lab Test / Value,LAB_VALUE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Mass,MASS,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Medication / Drug,MEDICATION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Nonbiological Location,NONBIOLOGICAL_LOCATION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Occupation,OCCUPATION,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Other Entity,OTHER_ENTITY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Other Event,OTHER_EVENT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Outcome,OUTCOME,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Personal Background,PERSONAL_BACKGROUND,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Qualitative Concept,QUALITATIVE_CONCEPT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Quantitative Concept,QUANTITATIVE_CONCEPT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Severity,SEVERITY,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Patient Demographics,SEX,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Shape,SHAPE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Sign / Symptom,SIGN_SYMPTOM,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Subject,SUBJECT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Texture,TEXTURE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Therapeutic Procedure,THERAPEUTIC_PROCEDURE,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Time,TIME,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Volume,VOLUME,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,
+Clinical-AI-Apollo,Clinical-AI-Apollo (HuggingFace),,NER,Weight,WEIGHT,PubMED (per model card),,Span only,https://huggingface.co/Clinical-AI-Apollo/Medical-NER,

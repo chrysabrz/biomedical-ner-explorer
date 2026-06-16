@@ -667,7 +667,7 @@ if df is not None:
         st.header("Benchmark Corpora")
         st.markdown(
             "Every corpus referenced by the tools in this explorer. Public benchmark corpora "
-            "(via Hugging Face `bigbio`/`spyysalo`) carry full metadata — entity types, "
+            "(via Hugging Face `bigbio`/`spyysalo`) carry full metadata: entity types, "
             "normalization DBs, relations, and split sizes. Restricted clinical sets, "
             "free-text combinations, and methods/dictionaries are included for completeness "
             "with an explanatory note and blank fields where no verified data exists."
@@ -750,7 +750,7 @@ if df is not None:
                 with m1:
                     st.metric("Entity types", int(row["num_entity_types"]))
                 with m2:
-                    gran = str(row["granularity"]) if pd.notna(row["granularity"]) else "—"
+                    gran = str(row["granularity"]) if pd.notna(row["granularity"]) else "-"
                     st.metric("Granularity", gran)
                 with m3:
                     st.metric("Normalized", "Yes" if str(row["has_normalization"]) == "yes" else "No")
