@@ -306,6 +306,34 @@ corpus(
      ("Biospecimen", "no", [], "")],
 )
 
+# MACCROBAT: 200 PubMed Central clinical case reports annotated with the ACROBAT
+# scheme. Source corpus for d4data/biomedical-ner-all and Clinical-AI-Apollo. The
+# label set below is the 41-type ACROBAT inventory those models expose (entity +
+# event types plus modifiers). Span/event annotation with 12 relation types; no
+# ontology-ID normalization; distributed as flat brat files with no official split.
+_MACCROBAT_LABELS = [
+    "Disease_disorder", "Medication", "Activity", "Administration", "Age", "Area",
+    "Biological_attribute", "Biological_structure", "Clinical_event", "Color",
+    "Coreference", "Date", "Detailed_description", "Diagnostic_procedure", "Distance",
+    "Dosage", "Duration", "Family_history", "Frequency", "Height", "History",
+    "Lab_value", "Mass", "Nonbiological_location", "Occupation", "Other_entity",
+    "Other_event", "Outcome", "Personal_background", "Qualitative_concept",
+    "Quantitative_concept", "Severity", "Sex", "Shape", "Sign_symptom", "Subject",
+    "Texture", "Therapeutic_procedure", "Time", "Volume", "Weight",
+]
+corpus(
+    dict(corpus="MACCROBAT", granularity="document", entity_types=_MACCROBAT_LABELS,
+         has_normalization="no", normalization_dbs=[],
+         has_relations="yes", relation_types=["ACROBAT entity/event relations (12 types)"],
+         train="", val="", test="", hf="",
+         note=("Benchmark corpus: 200 PubMed Central clinical case reports annotated with the "
+               "ACROBAT scheme (entities, events, modifiers) plus 12 relation types. Source "
+               "corpus for d4data/biomedical-ner-all and Clinical-AI-Apollo/Medical-NER. "
+               "Span/event annotation with no ontology-ID normalization; distributed as flat "
+               "brat files with no official train/dev/test split.")),
+    [(e, "no", [], "") for e in _MACCROBAT_LABELS],
+)
+
 
 # ---- Corpora referenced by tools but not public single benchmarks ----------
 # Added for completeness so every corpus mentioned in the tools data appears in
